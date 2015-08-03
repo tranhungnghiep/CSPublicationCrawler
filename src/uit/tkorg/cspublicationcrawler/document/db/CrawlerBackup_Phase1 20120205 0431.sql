@@ -1,0 +1,1383 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.5.16
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema cspublicationcrawler
+--
+
+CREATE DATABASE IF NOT EXISTS cspublicationcrawler;
+USE cspublicationcrawler;
+
+--
+-- Definition of table `author`
+--
+
+DROP TABLE IF EXISTS `author`;
+CREATE TABLE `author` (
+  `idAuthor` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `authorName` varchar(1000) DEFAULT NULL,
+  `image` varchar(1000) DEFAULT NULL,
+  `emailAddress` varchar(1000) DEFAULT NULL,
+  `website` varchar(1000) DEFAULT NULL,
+  `idOrg` int(10) unsigned DEFAULT NULL,
+  `h_index` int(3) DEFAULT NULL,
+  `g_index` int(3) DEFAULT NULL,
+  `url` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`idAuthor`),
+  KEY `fk_Author_Org` (`idOrg`),
+  KEY `index_Author_url` (`url`(255)),
+  CONSTRAINT `fk_Author_Org` FOREIGN KEY (`idOrg`) REFERENCES `org` (`idOrg`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=578 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `author`
+--
+
+/*!40000 ALTER TABLE `author` DISABLE KEYS */;
+INSERT INTO `author` (`idAuthor`,`authorName`,`image`,`emailAddress`,`website`,`idOrg`,`h_index`,`g_index`,`url`) VALUES 
+ (1,'Bui Thanh Hieu',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (2,'Bui Van Minh',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (3,'Bui Van Thanh',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (4,'Cao Thi Kim Tuyen',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (5,'Cao Thi Nhan',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (6,'Dam Quang Hong Hai',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (7,'Dinh Dien',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (8,'Dinh Khac Quyen',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (9,'Dinh Nguyen Anh Dung',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (10,'Do Phuc',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (11,'Do Thi Minh Phung',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (12,'Do Thi Thanh Tuyen',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (13,'Do Van Nhon',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (14,'Duong Khai Phong',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (15,'Duong Tan Thanh',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (16,'Duong Ton Dam',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (17,'Ho Thi Kim Hoang',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (18,'Ho Tran Nhat Thuy',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (19,'Hoang Van Kiem',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (20,'Huynh Huu Viet',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (21,'Huynh Ngoc Tin',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (22,'Lam Duc Khai',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (23,'Le Bao Uyen',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (24,'Le Duc Thang',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (25,'Le Hoai Nghia',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (26,'Le Hoang Tuan',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (27,'Le Manh',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (28,'Lu Nhat Vinh',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (29,'Luong Ngoc Khanh',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (30,'Mai Tien Dung',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (31,'Mai Xuan Hung',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (32,'Ngo Han Chieu',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (33,'Ngo Thanh Hung',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (34,'Ngo Tuan Kiet',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (35,'Nguyen Anh Tuan',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (36,'Nguyen Dang Khoa',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (37,'Nguyen Ðinh Hien',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (38,'Nguyen Dinh Loan Phuong',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (39,'Nguyen Dinh Quyen',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (40,'Nguyen Dinh Thuan',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (41,'Nguyen Duc Thang',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (42,'Nguyen Duy',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (43,'Nguyen Hoang Tien',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (44,'Nguyen Hoang Tu Anh',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (45,'Nguyen Huu Thuong',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (46,'Nguyen Phi Khu',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (47,'Nguyen Tat Bao Thien',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (48,'Nguyen Thang',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (49,'Nguyen Thi Kim Phung',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (50,'Nguyen Thi Thanh Truc',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (51,'Nguyen Thuy Ngoc',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (52,'Nguyen Tien Long',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (53,'Nguyen Tra Linh',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (54,'Nguyen Trac Thuc',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (55,'Nguyen Tran Minh Khue',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (56,'Nguyen Tuan Dang',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (57,'Nguyen Van Loi',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (58,'Nguyen Van Toan',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (59,'Nguyen Van Xanh',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (60,'Pham Thi Vuong',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (61,'Pham Xuan Khanh',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (62,'Phan Hoang Chuong',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (63,'Phan Nguyen Thuy An',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (64,'Phan Nguyet Minh',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (65,'Phan Quoc Huy',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (66,'Phan Trung Hieu',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (67,'Thai Bao Tran',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (68,'Thai Hai Duong',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (69,'Thieu Xuan Khanh',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (70,'To Nguyen Nhat Quang',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (71,'Tran Anh Dung',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (72,'Tran Ba Nhiem',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (73,'Tran Thi Nhu Nguyet',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (74,'Tran Vinh Phuoc',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (75,'Trinh Minh Tuan',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (76,'Trinh Quoc Son',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (77,'Truong Hai Bang',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (78,'Truong Thu Thuy',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (79,'Vo The Dan',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (80,'Vo Van Khang',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (81,'Vu Duc Khanh',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (82,'Vu Duc Lung',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (83,'Vu Hai Quan',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (84,'Vu Thanh Nguyen',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (85,'Vu Tri Dung',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (86,'Vu Van Khiet',NULL,NULL,NULL,1,NULL,NULL,NULL),
+ (87,'Bui Bach Dang',NULL,NULL,NULL,2,NULL,NULL,NULL),
+ (88,'Hoang Than Anh Tuan',NULL,NULL,NULL,2,NULL,NULL,NULL),
+ (89,'Huynh Kha Tu',NULL,NULL,NULL,2,NULL,NULL,NULL),
+ (90,'Le Hai Duong',NULL,NULL,NULL,2,NULL,NULL,NULL),
+ (91,'Le Thanh Son',NULL,NULL,NULL,2,NULL,NULL,NULL),
+ (92,'Ly Tu Nga',NULL,NULL,NULL,2,NULL,NULL,NULL),
+ (93,'Nguyen Duc Cuong',NULL,NULL,NULL,2,NULL,NULL,NULL),
+ (94,'Nguyen Van Sinh',NULL,NULL,NULL,2,NULL,NULL,NULL),
+ (95,'Pham Van Hau',NULL,NULL,NULL,2,NULL,NULL,NULL),
+ (96,'Phan Viet Hoang',NULL,NULL,NULL,2,NULL,NULL,NULL),
+ (97,'Tran Manh Ha',NULL,NULL,NULL,2,NULL,NULL,NULL),
+ (98,'Vo Duy Khoi',NULL,NULL,NULL,2,NULL,NULL,NULL),
+ (99,'Zhivko Nedev',NULL,NULL,NULL,2,NULL,NULL,NULL),
+ (100,'Bui Tan Loc',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (101,'Bui Tien Len',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (102,'Chu Tat Bich San',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (103,'Dang Thi Thanh Nguyen',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (104,'Dao Anh Tuan',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (105,'Dao Anh Vu',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (106,'Dinh Ba Thang',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (107,'Dinh Ba Tien',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (108,'Do Lenh Hung Son',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (109,'Do Xuan Quang',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (110,'Dong Thi Bich Thuy',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (111,'Duong Anh Duc',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (112,'Ho Tuan Thanh',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (113,'Huynh Trung Dong',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (114,'Lam Quang Vu',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (115,'Lam Xuan Nhat',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (116,'Le Dinh Duy',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (117,'Le Hoai Bac',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (118,'Le Hoang Thai',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (119,'Le Khac Nhien An',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (120,'Le Thuy Anh',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (121,'Le Xuan Dinh',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (122,'Ly Quoc Ngoc',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (123,'Mai Anh Tuan',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (124,'Mai Van Cuong',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (125,'Ngo Ba Nam Phuong',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (126,'Ngo Huy Bien',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (127,'Ngo Ngoc Dang Khoa',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (128,'Nguyen Dinh Thuc',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (129,'Nguyen Dong Ha',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (130,'Nguyen Duc Hoang Ha',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (131,'Nguyen Duc Huy',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (132,'Nguyen Hoang Anh',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (133,'Nguyen Huy Khanh',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (134,'Nguyen Khac Huy',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (135,'Nguyen Luu Thuy Ngan',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (136,'Nguyen Minh Huy',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (137,'Nguyen Pham Phuong Nam',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (138,'Nguyen Son Hoang Quoc',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (139,'Nguyen Tan Tran Minh',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (140,'Nguyen Thi Bich',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (141,'Nguyen Tien Huy',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (142,'Nguyen Tran Minh Thu',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (143,'Nguyen Tri Tuan',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (144,'Nguyen Van Khiet',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (145,'Nguyen Van Vu',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (146,'Pham Hoang Hai',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (147,'Pham Minh Tuan',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (148,'Pham Nam Trung',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (149,'Pham Tu San',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (150,'Thai Hung Van',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (151,'Tran Cong Danh',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (152,'Tran Dan Thu',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (153,'Tran Duc Duan',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (154,'Tran Duy Hoang',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (155,'Tran Duy Thao',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (156,'Tran Hanh Nhi',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (157,'Tran Le Hong Du',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (158,'Tran Minh Triet',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (159,'Tran Thai Son',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (160,'Tran Thi Bich Hanh',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (161,'Tran Van Quy',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (162,'Truong Phuoc Loc',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (163,'Van Chi Nam',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (164,'Vo Duc Khanh',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (165,'Vo Huu Phuc',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (166,'Vu Hai Quan',NULL,NULL,NULL,3,NULL,NULL,NULL),
+ (167,'Bui Hoai Thang',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (168,'Bui Van Hieu',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (169,'Cao Hoang Tru',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (170,'Dang Tran Khanh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (171,'Dinh Duc Anh Vu',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (172,'Doan Minh Vung',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (173,'Doan Nguyen Hai',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (174,'Doan Viet Hung',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (175,'Duong Ngoc Hieu',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (176,'Duong Nguyen Vu',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (177,'Duong Tuan Anh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (178,'Ha Hoai Phuong',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (179,'Ho Quoc Thuan',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (180,'Ho Tran Linh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (181,'Ho Van Quan',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (182,'Hoang Duc Minh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (183,'Huynh Ngoc Thanh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (184,'Huynh Tan Dat',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (185,'Le Lam Son',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (186,'Le Minh Vu',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (187,'Le Nam Hien',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (188,'Le Ngoc Minh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (189,'Le Quang Loc',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (190,'Le Thanh Sach',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (191,'Le Trung Quan',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (192,'Luong Thu Thuy',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (193,'Ly Hoang Hai',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (194,'Ngo Huy Hoang',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (195,'Nguyen Cao Dat',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (196,'Nguyen Cao Tri',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (197,'Nguyen Hua Phung',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (198,'Nguyen Huu Hai',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (199,'Nguyen Lu Dang Khoa',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (200,'Nguyen Manh Tho',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (201,'Nguyen Ngo Bao Tran',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (202,'Nguyen Quang Hung',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (203,'Nguyen Quoc Tuan',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (204,'Nguyen Quoc Viet Hung',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (205,'Nguyen Thanh Son',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (206,'Nguyen Thanh Tung',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (207,'Nguyen Thi Truc Vien',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (208,'Nguyen Trung Truc',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (209,'Nguyen Tuan Anh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (210,'Nguyen Van Doan',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (211,'Nguyen Van Hiep',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (212,'Nguyen Van Minh Man',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (213,'Nguyen Viet Hung',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (214,'Nguyen Xuan Minh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (215,'Pham Ba Ha',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (216,'Pham Hoang Anh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (217,'Pham Quoc Cuong',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (218,'Phan Dinh Khoi',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (219,'Phan Dinh Mai',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (220,'Phan Dinh The Duy',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (221,'Phan Thi Thanh Huyen ',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (222,'Phan Thi Tuoi',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (223,'Phan Truong Khoa',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (224,'Phung Huu Phu',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (225,'Quan Thanh Tho',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (226,'Thoai Nam',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (227,'Tran Dang Khoa',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (228,'Tran Hoang Ha',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (229,'Tran Minh Quang',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (230,'Tran Ngoc Minh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (231,'Tran Ngoc Thinh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (232,'Tran Nguyen Hoang Huy',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (233,'Tran Quang',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (234,'Tran Van Hoai',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (235,'Truong Hong Linh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (236,'Vo Hoang Tam',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (237,'Vu Le Hung',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (238,'Vu Ngoc Vinh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (239,'Vu Quang Hieu',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (240,'Vu Tuan Thanh',NULL,NULL,NULL,4,NULL,NULL,NULL),
+ (241,'Au Buu Long',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (242,'Ho Thi Ngoc Thanh',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (243,'Huynh Tan Dat',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (244,'Le Duc Long',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (245,'Le Minh Triet',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (246,'Le Minh Trung',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (247,'Luong Tran Hy Hien',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (248,'Ngo Quoc Viet',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (249,'Nguyen Dang Kim Khanh',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (250,'Nguyen Do Thai Nguyen',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (251,'Nguyen Huu Thong',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (252,'Nguyen Khac Van',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (253,'Nguyen Quang Tan',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (254,'Nguyen Tan Khoa',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (255,'Nguyen Thanh Phuoc',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (256,'Nguyen Thi Ngoc Hoa',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (257,'Nguyen Thuy Ngoc',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (258,'Nguyen Tran Phi Phuong',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (259,'Nguyen Viet Hung',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (260,'Tran Duc Tam',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (261,'Tran Huu Quoc Thu',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (262,'Tran Phuoc Tuan',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (263,'Tran Son Hai',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (264,'Tran Thi Thuy Tien',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (265,'Trinh Huy Hoang',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (266,'Vo Phuong Nguyen',NULL,NULL,NULL,5,NULL,NULL,NULL),
+ (267,'Dang Thanh Dung',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (268,'Dang Thi Kim Giao',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (269,'Dang Truong Son',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (270,'Dinh Cong Doan',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (271,'Hoang Long',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (272,'Huynh Nguyen Chinh',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (273,'Huynh Ton Nghia',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (274,'Huynh Trung Hieu',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (275,'Le Van Vinh',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (276,'Le Vinh Thinh',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (277,'Mai Tuan Khoi',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (278,'Nguyen Cong Thuong',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (279,'Nguyen Dang Quang',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (280,'Nguyen Hoai Le',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (281,'Nguyen Huu Trung',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (282,'Nguyen Minh Dao',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (283,'Nguyen Phuong',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (284,'Nguyen Quang Ngoc',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (285,'Nguyen Thanh Son',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (286,'Nguyen Thanh Tuan',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (287,'Nguyen Thi Thanh Van',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (288,'Nguyen Thien Bao',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (289,'Nguyen Tran Thi Van',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (290,'Nguyen Van Long',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (291,'Phung Quang Ngoc',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (292,'Quach Dinh Hoang',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (293,'Tran Cong Tu',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (294,'Tran Nhat Quang',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (295,'Tran Tien Duc',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (296,'Truong Thi Ngoc Phuong',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (297,'Tu Tuyet Hong',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (298,'Vu Kim Hanh',NULL,NULL,NULL,6,NULL,NULL,NULL),
+ (299,'Bui Cong Danh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (300,'Bui Cong Truong',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (301,'Chau Thi Bao Ha',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (302,'Dang Thanh Binh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (303,'Dang Thanh Minh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (304,'Dang Thi Phuc',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (305,'Dang Thi Thu Ha',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (306,'Dao Thi Cam Hang',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (307,'Do Cong Thanh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (308,'Do Ha Phuong',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (309,'Do Thi Kim Niet',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (310,'Duong Tien Lam',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (311,'Giang Thanh Tron',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (312,'Ho Dac Quan',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (313,'Hoang Dinh Hanh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (314,'Hoang Thi Thanh Ngoc',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (315,'Huynh Thai Hoc',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (316,'Huynh Trung Hieu',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (317,'Huynh Vu Nhu Lien',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (318,'Le Ngoc Son',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (319,'Le Ngoc Tan',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (320,'Le Ngoc Tien',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (321,'Le Nhat Duy',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (322,'Le Thuy Trang',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (323,'Le Trong Ngoc',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (324,'Mai Xuan Phu',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (325,'Nguyen Hoa',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (326,'Nguyen Huu Tinh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (327,'Nguyen Minh Hai',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (328,'Nguyen Nam',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (329,'Nguyen Ngoc Dung',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (330,'Nguyen Nho Dung',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (331,'Nguyen Nhu Hoa',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (332,'Nguyen Phan Trung',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (333,'Nguyen Phuc Hung',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (334,'Nguyen Quang Trung',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (335,'Nguyen Quoc Dinh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (336,'Nguyen Thanh Thai',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (337,'Nguyen Thi Cam Huong',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (338,'Nguyen Thi Hanh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (339,'Nguyen Thi Hien Trang',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (340,'Nguyen Thi Hoang Khanh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (341,'Nguyen Thi Hong Luong',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (342,'Nguyen Thi Hong Minh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (343,'Nguyen Thi Minh Hieu',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (344,'Nguyen Thi My Linh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (345,'Nguyen Thi Phi Loan',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (346,'Nguyen Thi Phuong Giang',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (347,'Nguyen Thi Thanh Binh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (348,'Nguyen Thi Truc Ly',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (349,'Nguyen Tran Anh Tuan',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (350,'Nguyen Tran Cao Tan Khoa',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (351,'Nguyen Van Hung',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (352,'Nguyen Van Quang',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (353,'Nguyen Van Tan',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (354,'Nguyen Van Thang',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (355,'Pham Quang Tri',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (356,'Pham Si Quan',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (357,'Pham Thanh Hung',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (358,'Pham Thanh Mai',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (359,'Pham Thi Hong',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (360,'Pham Thi Thiet',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (361,'Pham Thi Xuan Dieu',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (362,'Pham Van Chung',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (363,'Pham Viet Kha',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (364,'Pham Xuan Kien',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (365,'Ta Duy Cong Chien',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (366,'Thai Le My Loan',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (367,'Ton Long Phuoc',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (368,'Tran Dac Phien',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (369,'Tran Duy Thanh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (370,'Tran Thi Anh Thi',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (371,'Tran Thi Kim Chi',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (372,'Tran Thi Ngoc Hoa',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (373,'Tran Thi Nhan Ai',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (374,'Tran Van Vinh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (375,'Truong Khac Tung',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (376,'Tu Thi Hong Nhung',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (377,'Tu Thi Xuan Hien',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (378,'Van Phu Hoi',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (379,'Vo Cong Minh',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (380,'Vo Ngoc Tan Phuoc',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (381,'Vo Quang Hoang Khang',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (382,'Vo Thi Thanh Van',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (383,'Vo Thi Xuan Thieu',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (384,'Vo Van Hai',NULL,NULL,NULL,7,NULL,NULL,NULL),
+ (385,'Bui Xuan Huy',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (386,'Cao Van Tho',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (387,'Dinh Ngoc Luyen',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (388,'Do Trong Danh',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (389,'Ho Hai Van',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (390,'Huynh Tan Phuoc',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (391,'Le Anh Vu',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (392,'Le Thanh Tung',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (393,'Luu Thanh Tra',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (394,'Ngo Hung Dung',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (395,'Ngo Viet Phuong',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (396,'Nguyen Anh Tuan',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (397,'Nguyen Ba Trung',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (398,'Nguyen Huu Phan Hoang Ho',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (399,'Nguyen Huu Phat',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (400,'Nguyen Kim Long',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (401,'Nguyen Ngoc Nhu Hang',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (402,'Nguyen Ngoc Tu',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (403,'Nguyen Phuong Hoang',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (404,'Nguyen Thi Phuong Lien',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (405,'Nguyen Thi Thanh',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (406,'Nguyen Thi Thanh Tam',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (407,'Nguyen Thi Thanh Thanh',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (408,'Nguyen Trieu Phuong',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (409,'Nguyen Trung Lap',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (410,'Nguyen Van Son',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (411,'Nguyen Vu Ngoc Tung',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (412,'Pham Thi Kim Ngon',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (413,'Pham Thi Thanh Tam',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (414,'Phan Dinh The Huan',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (415,'Trang Hong Son',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (416,'Vo Hoang Hai',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (417,'Vo Thi Thu Ha',NULL,NULL,NULL,8,NULL,NULL,NULL),
+ (418,'Cao Tung Anh',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (419,'Dinh Thi Luong',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (420,'Do Cong Khanh',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (421,'Le Manh Hai',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (422,'Le Mau Gia Bao',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (423,'Le Thi Hong Ngoc',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (424,'Le Trung Hieu',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (425,'Mai Ngoc Thu',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (426,'Nguyen An Khuong',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (427,'Nguyen Cao Tri',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (428,'Nguyen Chanh Thanh',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (429,'Nguyen Duc Quang',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (430,'Nguyen Ha Giang',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (431,'Nguyen Hoang Nam',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (432,'Nguyen Thanh Giang',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (433,'Nguyen Thuy Loan',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (434,'Pham Thi Lan Anh',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (435,'Tran Ho Le Phuong Dan',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (436,'Truong Thi Minh Chau',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (437,'Van Nhu Bich B',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (438,'Van Thi Thien Trang',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (439,'Van Thien Hoang',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (440,'Vo Dinh Bay',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (441,'Vo Hoang Khang',NULL,NULL,NULL,9,NULL,NULL,NULL),
+ (442,'Bach Thu Quyen',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (443,'Bui Anh Bao',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (444,'Bui Phuong Anh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (445,'Bui Phuong Nhung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (446,'Bui Quang Vinh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (447,'Bui Sy Nguyen',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (448,'Bui Thi Hong Lien',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (449,'Cao Le Thi Khanh Ngoc',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (450,'Dang Dang Khoa',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (451,'Dang Sy Hai',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (452,'Dang Thi Thanh Hoa B',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (453,'Dao Duy Cuong',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (454,'Dao Ngoc Anh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (455,'Dao Trong Duy',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (456,'Dinh Ngoc Anh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (457,'Dinh Thanh Hung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (458,'Dinh Thi Lan',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (459,'Do Quoc Binh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (460,'Do Thanh Nam',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (461,'Duong Trong Phu Son',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (462,'Duong Trong Tan',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (463,'Giang Vy Hung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (464,'Ha Dung Hiep',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (465,'Ho Hoan Kiem',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (466,'Hoang A Na',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (467,'Hoang Anh Minh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (468,'Hoang Duc Quang',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (469,'Hoang Thi Hai Yen',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (470,'Hoang Xuan Bach',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (471,'Huynh Anh Dung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (472,'Huynh Van Bay',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (473,'Kieu Trong Khanh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (474,'La Ngoc Quang',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (475,'Le Duy Nam',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (476,'Le Gia Minh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (477,'Le Ha Duc',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (478,'Le Hai Nam',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (479,'Le Hong Hai',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (480,'Le Mong Thuy',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (481,'Le Thanh Hai',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (482,'Le Thanh Nhan',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (483,'Le Thanh Son',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (484,'Le The Hung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (485,'Le Thi Ngoc Quyen',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (486,'Le Thi Thoa',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (487,'Le Van Hoc',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (488,'Le Xuan Hoang',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (489,'Luc Duc Thanh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (490,'Luong Hong Hai',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (491,'Mario Pham',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (492,'Ngo Phuoc Nguyen',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (493,'Ngo The Tuan',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (494,'Ngo Tieu Huy',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (495,'Ngo Xuan Giap',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (496,'Nguyen Bao Huynh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (497,'Nguyen Cuong',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (498,'Nguyen Duy Dung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (499,'Nguyen Hoai Vu',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (500,'Nguyen Hoang Cong',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (501,'Nguyen Huong Tra',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (502,'Nguyen Huu Luong Tu',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (503,'Nguyen Khac Quyen',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (504,'Nguyen Khai Hoan',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (505,'Nguyen Khanh Trinh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (506,'Nguyen Mai Anh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (507,'Nguyen Manh Cuong',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (508,'Nguyen Manh Dung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (509,'Nguyen Minh Son',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (510,'Nguyen Ngoc Anh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (511,'Nguyen Nhu Anh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (512,'Nguyen Quang Hoa',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (513,'Nguyen Quynh Chi',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (514,'Nguyen Tat Trung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (515,'Nguyen Thanh Lam',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (516,'Nguyen Thanh Phuong',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (517,'Nguyen Thanh Vinh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (518,'Nguyen Thi Hanh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (519,'Nguyen Thi Hong Lien Minh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (520,'Nguyen Thi Huong Thom',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (521,'Nguyen Thi Kieu Thanh Thuy',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (522,'Nguyen Thi Minh Hai',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (523,'Nguyen Thi Minh Hue',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (524,'Nguyen Thi My Chi',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (525,'Nguyen Thi Quynh Mai',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (526,'Nguyen Thi Thanh Binh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (527,'Nguyen Tho Khoi',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (528,'Nguyen Tran Thanh Binh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (529,'Nguyen Trung Hieu',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (530,'Nguyen Trung Kien',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (531,'Nguyen Van Anh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (532,'Nguyen Van Binh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (533,'Nguyen Van Dong',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (534,'Nguyen Van Sang',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (535,'Nguyen Viet Anh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (536,'Nguyen Viet Hung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (537,'Pham Anh Doi',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (538,'Pham Cong Thanh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (539,'Pham Hung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (540,'Pham Huu Tung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (541,'Pham Le Duc Ngan',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (542,'Pham My Ngoc',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (543,'Pham Thanh Trung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (544,'Pham Thi Minh Hien',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (545,'Pham Tuan Anh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (546,'Pham Van Dung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (547,'Pham Viet Nga',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (548,'Phan Duy Hung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (549,'Phan Minh Tam',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (550,'Phan Thi Hai Ha',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (551,'Phan Trung Diep',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (552,'Phan Truong Lam',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (553,'Phung Thanh Xuan',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (554,'Phung Thi Phuong Thuy',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (555,'Quach Ngoc Xuan',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (556,'Ta Tran Minh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (557,'Than Thi Ngoc Van',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (558,'Than Van Su',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (559,'Tran Binh Duong',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (560,'Tran Dinh Tri',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (561,'Tran Do Luong',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (562,'Tran Huu Cong',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (563,'Tran Ngoc Trung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (564,'Tran Nguyen Ngoc',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (565,'Tran Phuoc Sinh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (566,'Tran Thanh Trung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (567,'Tran Thanh Trung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (568,'Tran Thi Le',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (569,'Tran Thi Van',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (570,'Tran Vinh Thu',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (571,'Tran Xuan Lam',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (572,'Truong Kieu Linh',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (573,'Van Thi Hong Phuc',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (574,'Van Thi Kim Ngan',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (575,'Vu Dang Khoa',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (576,'Vu Hong Dung',NULL,NULL,NULL,10,NULL,NULL,NULL),
+ (577,'Vu Tran Lam',NULL,NULL,NULL,10,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `author` ENABLE KEYS */;
+
+
+--
+-- Definition of table `author_paper`
+--
+
+DROP TABLE IF EXISTS `author_paper`;
+CREATE TABLE `author_paper` (
+  `idAuthor` int(10) unsigned NOT NULL,
+  `idPaper` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idAuthor`,`idPaper`),
+  KEY `fk_Author_has_Paper_Paper1` (`idPaper`),
+  KEY `fk_Author_has_Paper_Author1` (`idAuthor`),
+  CONSTRAINT `fk_Author_has_Paper_Author1` FOREIGN KEY (`idAuthor`) REFERENCES `author` (`idAuthor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Author_has_Paper_Paper1` FOREIGN KEY (`idPaper`) REFERENCES `paper` (`idPaper`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `author_paper`
+--
+
+/*!40000 ALTER TABLE `author_paper` DISABLE KEYS */;
+/*!40000 ALTER TABLE `author_paper` ENABLE KEYS */;
+
+
+--
+-- Definition of table `authorinstance`
+--
+
+DROP TABLE IF EXISTS `authorinstance`;
+CREATE TABLE `authorinstance` (
+  `idAuthorInstance` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `authorInstanceName` varchar(1000) DEFAULT NULL,
+  `image` varchar(1000) DEFAULT NULL,
+  `emailAddress` varchar(1000) DEFAULT NULL,
+  `website` varchar(1000) DEFAULT NULL,
+  `h_index` int(3) DEFAULT NULL,
+  `g_index` int(3) DEFAULT NULL,
+  `url` varchar(1000) DEFAULT NULL,
+  `idAuthor` int(10) unsigned NOT NULL,
+  `idOrg` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`idAuthorInstance`),
+  KEY `index_AuthorInstance_url` (`url`(255)),
+  KEY `fk_AuthorInstance_Author1` (`idAuthor`),
+  KEY `fk_AuthorInstance_Org1` (`idOrg`),
+  CONSTRAINT `fk_AuthorInstance_Author1` FOREIGN KEY (`idAuthor`) REFERENCES `author` (`idAuthor`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_AuthorInstance_Org1` FOREIGN KEY (`idOrg`) REFERENCES `org` (`idOrg`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=270 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `authorinstance`
+--
+
+/*!40000 ALTER TABLE `authorinstance` DISABLE KEYS */;
+INSERT INTO `authorinstance` (`idAuthorInstance`,`authorInstanceName`,`image`,`emailAddress`,`website`,`h_index`,`g_index`,`url`,`idAuthor`,`idOrg`) VALUES 
+ (1,'Dinh Dien','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,5,8,'/Author/6851184',7,11),
+ (2,'Do Phuc','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,3,'/Author/3390202',10,12),
+ (5,'Tuyen Do Thi-thanh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/5199270',12,NULL),
+ (6,'Tuyen Thi-Thanh Do','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/5212845',12,NULL),
+ (7,'Hoang Van Kiem','http://academic.research.microsoft.com/Images/photo.jpg',NULL,NULL,4,6,'/Author/9187431',19,12),
+ (8,'Van Kiem Hoang','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/11699371',19,NULL),
+ (11,'Lu Nhat Vinh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/3845557',28,16),
+ (12,'Mai Xuan Hung','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3836325',31,12),
+ (13,'Nguyen Lu Dang Khoa','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,2,'/Author/35773152',36,NULL),
+ (14,'Dinh-Quyen Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3836338',39,17),
+ (15,'Nguyen Dinh Thuan','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/9426617',40,18),
+ (16,'Thuan Dinh Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,3,'/Author/54543467',40,19),
+ (21,'Tu Anh Hoang Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,2,'/Author/10584681',44,24),
+ (22,'Tu-anh Nguyen-hoang','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/5195247',44,11),
+ (26,'Nguyen Thi Kim Phung','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3836367',49,NULL),
+ (27,'Dang Nguyen Tuan','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/5199269',56,NULL),
+ (28,'Dang Tuan Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/5212843',56,12),
+ (29,'Nguyen Van Toan','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,2,'/Author/19920451',58,NULL),
+ (30,'Pham Xuan Khanh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/3845358',61,NULL),
+ (31,'Xuan Khanh Pham','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/3845505',61,NULL),
+ (32,'Vu Hai Quan','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,3,4,'/Author/3382955',83,11),
+ (33,'Hai-Quan Vu','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3784204',83,11),
+ (34,'Quan Vu Hai','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/6118367',83,11),
+ (35,'Vu Thanh Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/11698016',84,12),
+ (36,'Vu-thanh Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,2,'/Author/11048096',84,27),
+ (37,'Dang Bui Bach','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3639533',87,28),
+ (38,'Le Thanh Son','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,4,'/Author/1818639',91,NULL),
+ (39,'Thanh Son Le','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,2,'/Author/3636087',91,NULL),
+ (40,'Cuong Duc Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/6295924',93,29),
+ (41,'Duc-cuong Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/2687031',93,NULL),
+ (46,'Zhivko Prodanov Nedev','http://academic.research.microsoft.com/Images/photo.jpg',NULL,'http://sites.google.com/site/znedev/',2,2,'/Author/18766138',99,34),
+ (47,'Len Tien Bui','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3836331',101,35),
+ (49,'Tien Ba Dinh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/363820',107,37),
+ (50,'Do Lenh Hung Son','http://academic.research.microsoft.com/Photo/6151727.jpg',NULL,'http://personnes.epfl.ch/son.dolenh',1,1,'/Author/6151727',108,NULL),
+ (51,'Dong Thi Bich Thuy','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,3,'/Author/3383405',110,37),
+ (52,'Thuy Dong Thi Bich','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/34058616',110,NULL),
+ (53,'Thuy Thi Bich Dong','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/10897296',110,37),
+ (54,'Duong Anh Duc','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,3,4,'/Author/3369476',111,11),
+ (55,'Anh Duc Duong','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,3,'/Author/55572287',111,NULL),
+ (56,'Anh-Duc Duong','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,3,'/Author/9236356',111,37),
+ (57,'Duc Anh Duong','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3661523',111,11),
+ (59,'Xuan Nhat Lam','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,2,'/Author/3655120',115,11),
+ (61,'Le Hoai Bac','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3515198',117,11),
+ (63,'Hoai Bac Le','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,3,'/Author/10882905',117,11),
+ (64,'Hoai-bac Le','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/9242460',117,11),
+ (65,'Le Hoang Thai','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/3520026',118,11),
+ (66,'Thai Hoang Le','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,2,'/Author/2658932',118,11),
+ (68,'Dinh Thuc Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/6142266',128,42),
+ (69,'Dinh-thuc Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/10895715',128,NULL),
+ (70,'Thuc Dinh Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,2,'/Author/11651089',128,11),
+ (71,'Dong Ha Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,2,'/Author/3629072',129,43),
+ (72,'Nguyen Duc Hoang Ha','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,3,3,'/Author/53608397',130,44),
+ (73,'Ha Nguyen Duc Hoang','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/10517739',130,11),
+ (75,'Anh Nguyen Hoang','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/9247051',132,NULL),
+ (77,'Nguyen Luu Thuy Ngan','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3745256',135,31),
+ (79,'Minh Thu Tran Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/9426681',142,19),
+ (80,'Thu Nguyen Tran Minh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/34058615',142,NULL),
+ (81,'Pham Minh Tuan','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3839558',147,NULL),
+ (82,'Minh Tuan Pham','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/10896815',147,47),
+ (83,'Pham Tuan Minh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/3836324',147,48),
+ (84,'Tuan Minh Pham','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/35371758',147,NULL),
+ (85,'Tuan-Minh Pham','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/34066688',147,49),
+ (87,'Pham Nam Trung','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,2,'/Author/3382956',148,51),
+ (88,'Nam-Trung Pham','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/12167506',148,50),
+ (89,'Hung Thai-Van','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/19393063',150,NULL),
+ (90,'Tran Dan Thu','http://academic.research.microsoft.com/Images/photo.jpg',NULL,'http://researchr.org/alias/tran-dan-thu',2,2,'/Author/3383406',152,11),
+ (91,'Dan Thu Tran','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3838825',152,NULL),
+ (92,'Thu Dan TRAN','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/5462901',152,11),
+ (93,'Hanh Nhi Tran','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,3,4,'/Author/3407513',156,52),
+ (95,'Tran Le Hong Du','http://academic.research.microsoft.com/Images/photo.jpg',NULL,NULL,1,2,'/Author/3836308',157,11),
+ (96,'Minh-Triet Tran','http://academic.research.microsoft.com/Photo/5197788.jpg',NULL,'http://www.fit.hcmuns.edu.vn/~tmtriet/',2,3,'/Author/5197788',158,37),
+ (97,'Tran Minh Triet','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,2,'/Author/5739239',158,11),
+ (98,'Tran Thai Son','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,4,7,'/Author/3669818',159,54),
+ (99,'Tran Thi Bich Hanh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,3,'/Author/47148529',160,NULL),
+ (100,'Van Chi Nam','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/10879090',163,NULL),
+ (101,'Khanh Duc Vo','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,2,'/Author/3297929',164,55),
+ (102,'Van-Hieu Bui','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/10401342',168,14),
+ (103,'Tru Hoang Cao','http://academic.research.microsoft.com/Photo/1481814.jpg',NULL,'http://www.dit.hcmut.edu.vn/~tru/',8,15,'/Author/1481814',169,14),
+ (104,'Cao Hoang Tru','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3360497',169,NULL),
+ (105,'Hoang-cao Tru','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/3407537',169,NULL),
+ (106,'Hoang-tru Cao','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/6115242',169,NULL),
+ (107,'Tran Khanh Dang','http://academic.research.microsoft.com/Photo/3354951.jpg',NULL,'http://www.eis.mdx.ac.uk/staffpages/k_dang/',4,7,'/Author/3354951',170,14),
+ (108,'Anh-Vu Dinh-Duc','http://academic.research.microsoft.com/Images/photo.jpg',NULL,'http://www.cse.hcmut.edu.vn/ACOMP2007/viewabstract.php?id=52',1,1,'/Author/3836364',171,14),
+ (109,'Dinh Duc Anh Vu','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/10512369',171,NULL),
+ (111,'Doan Viet Hung','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/3077850',174,14),
+ (112,'Duong Ngoc Hieu','http://academic.research.microsoft.com/Photo/3834397.jpg',NULL,'http://www.cse.hcmut.edu.vn/~dnhieu/',1,1,'/Author/3834397',175,NULL),
+ (113,'Duong Tuan Anh','http://academic.research.microsoft.com/Photo/9236977.jpg',NULL,'http://www.cse.hcmut.edu.vn/~dtanh/',1,1,'/Author/9236977',177,14),
+ (114,'Duongtuan Anh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/10253684',177,NULL),
+ (115,'Tuan-anh Duong','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/10530870',177,NULL),
+ (118,'Linh Tran Ho','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/11606665',180,58),
+ (119,'Hoang Duc Minh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3625314',182,59),
+ (120,'Ngoc Thanh Huynh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/9235623',183,NULL),
+ (123,'Le Ngoc-minh (Lê Ngoc-minh)','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,3,5,'/Author/3318437',188,NULL),
+ (124,'Quang-Loc Le','http://academic.research.microsoft.com/Images/photo.jpg',NULL,'http://www.comp.nus.edu.sg/~locle/',1,1,'/Author/9424926',189,NULL),
+ (125,'Le Thanh Sach','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/9427170',190,NULL),
+ (127,'Quan Le-Trung','http://academic.research.microsoft.com/Images/photo.jpg',NULL,'http://heim.ifi.uio.no/~quanle/index.html',1,1,'/Author/9223267',191,62),
+ (129,'Phung Hua Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,8,12,'/Author/3455286',197,14),
+ (132,'Nguyen Quoc Viet Hung','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,2,'/Author/52811721',204,NULL),
+ (134,'Hung Viet Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/54544458',213,38),
+ (138,'Anh Pham Hoang','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/12134761',216,NULL),
+ (139,'Hoang-Anh Pham','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/11555490',216,68),
+ (140,'Cuong Pham-Quoc','http://academic.research.microsoft.com/Photo/9418416.jpg',NULL,'http://www.cse.hcmut.edu.vn/~cuongpham/',NULL,NULL,'/Author/9418416',217,14),
+ (142,'Thi Thanh Huyen Phan','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/3653922',221,NULL),
+ (143,'Phan Thi Tuoi','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/49029833',222,14),
+ (144,'Tuoi Thi Phan','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3568532',222,14),
+ (145,'Phung Huu Phu','http://academic.research.microsoft.com/Photo/10236589.jpg',NULL,'http://www.chalmers.se/cse/EN/people/phung-huu-phu',1,1,'/Author/10236589',224,58),
+ (146,'Thanh Tho Quan','http://academic.research.microsoft.com/Images/photo.jpg',NULL,NULL,6,13,'/Author/35877956',225,14),
+ (147,'Nam Thoai','http://academic.research.microsoft.com/Images/photo.jpg',NULL,'http://www.cse.hcmut.edu.vn/~nam/',1,1,'/Author/3358592',226,14),
+ (148,'Hoang-Ha Tran','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/9556287',228,70),
+ (149,'Tran Minh Quang','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,2,'/Author/50544348',229,37),
+ (150,'Quang Tran Minh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/24021775',229,71),
+ (151,'Tran Ngoc Minh','http://academic.research.microsoft.com/Images/photo.jpg',NULL,'http://www.liacs.nl/~minhtn/',1,2,'/Author/5169404',230,72),
+ (152,'Minh-Ngoc Tran','http://academic.research.microsoft.com/Photo/10885968.jpg',NULL,'http://www.asb.unsw.edu.au/schools/Pages/Minh-NgocTran.aspx',1,1,'/Author/10885968',230,27),
+ (154,'Ngoc Thinh Tran','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/34038125',231,NULL),
+ (155,'Thinh Ngoc Tran','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,2,'/Author/3502264',231,14),
+ (156,'Tran Van Hoai','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/29156691',234,14),
+ (159,'Vo Hoang Tam','http://academic.research.microsoft.com/Images/photo.jpg',NULL,'http://www.comp.nus.edu/~voht/',1,1,'/Author/3800087',236,14),
+ (160,'Hoang Tam Vo','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,2,'/Author/6847253',236,27),
+ (161,'Le-Hung Vu','http://academic.research.microsoft.com/Images/photo.jpg',NULL,'http://lsirpeople.epfl.ch/lhvu/',6,14,'/Author/1084209',237,NULL),
+ (162,'Ngoc-Vinh Vu','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/29179687',238,75),
+ (164,'Duc-Long Le','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3826677',244,NULL),
+ (165,'Tan Khoa Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/34068102',254,NULL),
+ (167,'Son Dang Truong','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/9427286',269,NULL),
+ (172,'Hieu Trung Huynh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,3,4,'/Author/2144763',274,14),
+ (181,'Thanh Van Thi Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/29183957',287,NULL),
+ (182,'Cong-Thanh Do','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/12170492',307,NULL),
+ (183,'Le-Ngoc Son','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/9422913',318,NULL),
+ (188,'Nguyen Quang Trung','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/17932459',334,NULL),
+ (192,'Nguyen Thi Hong Minh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,4,'/Author/8527457',342,NULL),
+ (194,'Quang Van Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/46968745',352,NULL),
+ (196,'Pham Van Chung','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3836371',362,NULL),
+ (203,'Anh Tuan Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,4,'/Author/52599605',396,NULL),
+ (204,'Tuan Anh Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,3,5,'/Author/52599622',396,NULL),
+ (207,'Ngoc-Tu Nguyen','http://academic.research.microsoft.com/Images/photo.jpg',NULL,'http://www4.hcmut.edu.vn/~nntu/',2,3,'/Author/3480261',402,14),
+ (217,'Nguyen Chanh Thanh','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/9244569',428,14),
+ (218,'Thanh Chanh Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,4,'/Author/53670113',428,14),
+ (224,'Nam Hoang Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,2,'/Author/52598067',431,NULL),
+ (228,'Ngo Thanh Hung','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/3656717',33,NULL),
+ (229,'Duong Nguyen Vu','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/22292162',176,105),
+ (237,'Le Ha Duc','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/24331681',477,NULL),
+ (238,'Le Hai Nam','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,2,2,'/Author/55918182',478,NULL),
+ (242,'Hong Hai Luong','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/3670604',490,NULL),
+ (248,'Thanh-phuong Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,'http://www.loria.fr/~nguyentp',1,1,'/Author/3089337',516,NULL),
+ (249,'Thanh-Phuong Nguyen','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/52599563',516,NULL),
+ (253,'Hieu Nguyen Trung','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,NULL,NULL,'/Author/9427423',529,NULL),
+ (269,'Nga Viet Pham','http://academic.research.microsoft.com/Images/photo-mix.jpg',NULL,NULL,1,1,'/Author/53044438',547,NULL);
+/*!40000 ALTER TABLE `authorinstance` ENABLE KEYS */;
+
+
+--
+-- Definition of table `comment`
+--
+
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE `comment` (
+  `idComment` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `rating` int(1) DEFAULT NULL,
+  `content` mediumtext,
+  `idPaper` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idComment`),
+  KEY `fk_Comment_Paper1` (`idPaper`),
+  CONSTRAINT `fk_Comment_Paper1` FOREIGN KEY (`idPaper`) REFERENCES `paper` (`idPaper`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comment`
+--
+
+/*!40000 ALTER TABLE `comment` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comment` ENABLE KEYS */;
+
+
+--
+-- Definition of table `conference`
+--
+
+DROP TABLE IF EXISTS `conference`;
+CREATE TABLE `conference` (
+  `idConference` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `conferenceName` varchar(1000) DEFAULT NULL,
+  `website` varchar(1000) DEFAULT NULL,
+  `organization` varchar(1000) DEFAULT NULL,
+  `organizedLocation` varchar(1000) DEFAULT NULL,
+  `duration` varchar(1000) DEFAULT NULL,
+  `yearStart` int(10) unsigned DEFAULT NULL,
+  `yearEnd` int(10) unsigned DEFAULT NULL,
+  `url` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`idConference`),
+  KEY `index_Conference_url` (`url`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `conference`
+--
+
+/*!40000 ALTER TABLE `conference` DISABLE KEYS */;
+/*!40000 ALTER TABLE `conference` ENABLE KEYS */;
+
+
+--
+-- Definition of table `conference_pcmember`
+--
+
+DROP TABLE IF EXISTS `conference_pcmember`;
+CREATE TABLE `conference_pcmember` (
+  `idConference` int(10) unsigned NOT NULL,
+  `idPCMember` int(10) unsigned NOT NULL,
+  `year` int(10) unsigned DEFAULT NULL,
+  PRIMARY KEY (`idConference`,`idPCMember`),
+  KEY `fk_Conference_has_pcMember_pcMember1` (`idPCMember`),
+  KEY `fk_Conference_has_pcMember_Conference1` (`idConference`),
+  CONSTRAINT `fk_Conference_has_pcMember_Conference1` FOREIGN KEY (`idConference`) REFERENCES `conference` (`idConference`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Conference_has_pcMember_pcMember1` FOREIGN KEY (`idPCMember`) REFERENCES `pcmember` (`idPCMember`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `conference_pcmember`
+--
+
+/*!40000 ALTER TABLE `conference_pcmember` DISABLE KEYS */;
+/*!40000 ALTER TABLE `conference_pcmember` ENABLE KEYS */;
+
+
+--
+-- Definition of table `domain`
+--
+
+DROP TABLE IF EXISTS `domain`;
+CREATE TABLE `domain` (
+  `idDomain` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `domainName` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`idDomain`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `domain`
+--
+
+/*!40000 ALTER TABLE `domain` DISABLE KEYS */;
+INSERT INTO `domain` (`idDomain`,`domainName`) VALUES 
+ (2,'Computer Science');
+/*!40000 ALTER TABLE `domain` ENABLE KEYS */;
+
+
+--
+-- Definition of table `journal`
+--
+
+DROP TABLE IF EXISTS `journal`;
+CREATE TABLE `journal` (
+  `idJournal` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `journalName` varchar(1000) DEFAULT NULL,
+  `website` varchar(1000) DEFAULT NULL,
+  `yearStart` int(10) unsigned DEFAULT NULL,
+  `yearEnd` int(10) unsigned DEFAULT NULL,
+  `organization` varchar(1000) DEFAULT NULL,
+  `url` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`idJournal`),
+  KEY `index_Journal_url` (`url`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `journal`
+--
+
+/*!40000 ALTER TABLE `journal` DISABLE KEYS */;
+/*!40000 ALTER TABLE `journal` ENABLE KEYS */;
+
+
+--
+-- Definition of table `keyword`
+--
+
+DROP TABLE IF EXISTS `keyword`;
+CREATE TABLE `keyword` (
+  `idKeyword` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `keyword` varchar(1000) DEFAULT NULL,
+  `stemmingVariations` varchar(10000) DEFAULT NULL,
+  `url` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`idKeyword`),
+  KEY `index_Keyword_url` (`url`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `keyword`
+--
+
+/*!40000 ALTER TABLE `keyword` DISABLE KEYS */;
+/*!40000 ALTER TABLE `keyword` ENABLE KEYS */;
+
+
+--
+-- Definition of table `magazine`
+--
+
+DROP TABLE IF EXISTS `magazine`;
+CREATE TABLE `magazine` (
+  `idMagazine` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `magazineName` varchar(1000) DEFAULT NULL,
+  `website` varchar(1000) DEFAULT NULL,
+  `yearStart` int(10) unsigned DEFAULT NULL,
+  `yearEnd` int(10) unsigned DEFAULT NULL,
+  `organization` varchar(1000) DEFAULT NULL,
+  `url` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`idMagazine`),
+  KEY `index_Magazine_url` (`url`(255))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `magazine`
+--
+
+/*!40000 ALTER TABLE `magazine` DISABLE KEYS */;
+/*!40000 ALTER TABLE `magazine` ENABLE KEYS */;
+
+
+--
+-- Definition of table `org`
+--
+
+DROP TABLE IF EXISTS `org`;
+CREATE TABLE `org` (
+  `idOrg` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `orgName` varchar(1000) DEFAULT NULL,
+  `website` varchar(1000) DEFAULT NULL,
+  `continent` varchar(1000) DEFAULT NULL,
+  `idOrgParent` int(10) unsigned DEFAULT NULL,
+  `h_index` int(3) DEFAULT NULL,
+  `url` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`idOrg`),
+  KEY `fk_Org_Org1` (`idOrgParent`),
+  KEY `index_Org_url` (`url`(255)),
+  CONSTRAINT `fk_Org_Org1` FOREIGN KEY (`idOrgParent`) REFERENCES `org` (`idOrg`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `org`
+--
+
+/*!40000 ALTER TABLE `org` DISABLE KEYS */;
+INSERT INTO `org` (`idOrg`,`orgName`,`website`,`continent`,`idOrgParent`,`h_index`,`url`) VALUES 
+ (1,'Truong Dai Hoc Cong Nghe Thong Tin','uit.edu.vn',NULL,NULL,NULL,NULL),
+ (2,'Truong Dai Hoc Quoc Te','www.hcmiu.edu.vn',NULL,NULL,NULL,NULL),
+ (3,'Truong Dai Hoc Khoa Hoc Tu Nhien','www.hcmus.edu.vn',NULL,NULL,NULL,NULL),
+ (4,'Truong Dai Hoc Bach Khoa','www.hcmut.edu.vn',NULL,NULL,NULL,NULL),
+ (5,'Truong Dai Hoc Su Pham','www.hcmup.edu.vn',NULL,NULL,NULL,NULL),
+ (6,'Truong Dai Hoc Su Pham Ky Thuat','www.hcmute.edu.vn',NULL,NULL,NULL,NULL),
+ (7,'Truong Dai Hoc Cong Nghiep','www.hui.edu.vn',NULL,NULL,NULL,NULL),
+ (8,'Truong Dai Hoc Hoa Sen','www.hoasen.edu.vn',NULL,NULL,NULL,NULL),
+ (9,'Truong Dai Hoc Ky Thuat Cong Nghe','www.hutech.edu.vn',NULL,NULL,NULL,NULL),
+ (10,'Truong Dai Hoc FPT','www.fpt.edu.vn',NULL,NULL,NULL,NULL),
+ (11,'Ho Chi Minh City University of Science (Natural Sciences)','http://www.hcmuns.edu.vn/','[Asia & Oceania]',NULL,13,'/Organization/9511'),
+ (12,'Center for Information Technology','http://www.uit.edu.vn/','[Asia & Oceania]',NULL,25,'/Organization/17077'),
+ (13,'Gwangju Institute of Science & Technology','http://www.gist.ac.kr/','[Asia & Oceania]',NULL,72,'/Organization/9138'),
+ (14,'Ho Chi Minh City University of Technology','http://www.hutech.edu.vn/','[Asia & Oceania]',NULL,15,'/Organization/10022'),
+ (15,'Hue University','http://www.hueuni.edu.vn/','[Asia & Oceania]',NULL,11,'/Organization/9987'),
+ (16,'Ho Chi Minh City University of Transport','http://www.hcmutrans.edu.vn/','[Asia & Oceania]',NULL,NULL,'/Organization/9516'),
+ (17,'University of Rostock','http://www.uni-rostock.de/','Universität Rostock[Europe]',NULL,98,'/Organization/17795'),
+ (18,'Nha Trang University','http://www.ntu.edu.vn/','[Asia & Oceania]',NULL,13,'/Organization/3704'),
+ (19,'Hanoi University of Technology','http://www.hut.edu.vn/','[Asia & Oceania]',NULL,20,'/Organization/10017'),
+ (20,'Kyung Hee University','http://www.kyunghee.ac.kr/','경희대학교[Asia & Oceania]',NULL,75,'/Organization/11891'),
+ (21,'BirdLife International','http://www.birdlife.org/',NULL,NULL,22,'/Organization/21802'),
+ (22,'Asian Institute of Technology Thailand','http://www.ait.ac.th/','[Asia & Oceania]',NULL,36,'/Organization/4385'),
+ (23,'Posts and Telecommunications Institute of Technology','http://www.ptit.edu.vn/','[Asia & Oceania]',NULL,9,'/Organization/14331'),
+ (24,'Research Centre Canada','http://www.crc.gc.ca/',NULL,NULL,31,'/Organization/20750'),
+ (25,'Paris Dauphine University','http://www.dauphine.fr/','Université Paris 9 Dauphine[Europe]',NULL,97,'/Organization/1807'),
+ (26,'Japan Advanced Institute of Science & Technology','http://www.jaist.ac.jp/','[Asia & Oceania]',NULL,78,'/Organization/11059'),
+ (27,'National University of Singapore','http://www.nus.edu.sg/','[Asia & Oceania]',NULL,181,'/Organization/13610'),
+ (28,'Free University of Brussels','http://www.vub.ac.be/','[Europe]',NULL,119,'/Organization/18878'),
+ (29,'University of Alberta','http://www.ualberta.ca/','[North America]',NULL,219,'/Organization/16586'),
+ (30,'Ewha Womens University','http://www.ewha.ac.kr/','[Asia & Oceania]',NULL,74,'/Organization/7908'),
+ (31,'Vietnam National University','http://www.vnu.edu.vn/','[Asia & Oceania]',NULL,21,'/Organization/18807'),
+ (32,'Institut Eurecom École d\'Ingénieurs en Systemes de Communication','http://www.eurecom.fr/','[Europe]',NULL,77,'/Organization/7866'),
+ (33,'Jacobs University Bremen','http://www.jacobs-university.de/','Jacobs University Bremen[Europe]',NULL,62,'/Organization/11055'),
+ (34,'University of Victoria','http://www.uvic.ca/','[North America]',NULL,147,'/Organization/18628'),
+ (35,'University of Canberra','http://www.canberra.edu.au/','[Asia & Oceania]',NULL,55,'/Organization/5655'),
+ (36,'University of Southern California','http://www.usc.edu/','[North America]',NULL,340,'/Organization/18400'),
+ (37,'Faculty of Economics VNU-HCM','http://www.ecovnuhcm.edu.vn/','[Asia & Oceania]',NULL,14,'/Organization/7296'),
+ (38,'University of Southampton','http://www.soton.ac.uk/','[Europe]',NULL,214,'/Organization/3146'),
+ (39,'National Institute of Informatics','http://www.nii.ac.jp/','国立情報学研究所',NULL,63,'/Organization/20670'),
+ (40,'Hong Kong University of Science & Technology','http://www.ust.hk/','香港科技大學[Asia & Oceania]',NULL,154,'/Organization/18489'),
+ (41,'University College Dublin','http://www.ucd.ie/','[Europe]',NULL,146,'/Organization/16728'),
+ (42,'Los Alamos National Laboratory','http://www.lanl.gov/','[North America]',NULL,188,'/Organization/420'),
+ (43,'École des Mines de Nantes','http://www.emn.fr/','[Europe]',NULL,42,'/Organization/7449'),
+ (44,'Osterreichische Akademie der Wissenschaften','http://www.oeaw.ac.at/','[Europe]',NULL,110,'/Organization/1435'),
+ (45,'Ritsumeikan University','http://www.ritsumei.ac.jp/','[Asia & Oceania]',NULL,78,'/Organization/14621'),
+ (46,'Scuola Universitaria Professionale della Svizzera Italiana','http://www.supsi.ch/','[Europe]',NULL,26,'/Organization/15832'),
+ (47,'Nagoya University','http://www.nagoya-u.ac.jp/','名古屋大学[Asia & Oceania]',NULL,160,'/Organization/13061'),
+ (48,'National University of Education, Vietnam','http://www.hnue.edu.vn/','[Asia & Oceania]',NULL,6,'/Organization/9809'),
+ (49,'Laboratoire d\'Informatique de Paris 6','http://www.lip6.fr/','[Europe]',NULL,63,'/Organization/1654'),
+ (50,'Agency for Science, Technology and Research Singapore','http://www.a-star.edu.sg/','[Asia & Oceania]',NULL,151,'/Organization/1385'),
+ (51,'Asian Institute of Technology','http://www.aitcv.ac.vn/','[Asia & Oceania]',NULL,30,'/Organization/4388'),
+ (52,'University of Bordeaux 1','http://www.u-bordeaux1.fr/','Université Bordeaux 1[Europe]',NULL,95,'/Organization/12382'),
+ (53,'Université Toulouse II Le Mirail','http://www.univ-tlse2.fr/','[Europe]',NULL,27,'/Organization/18065'),
+ (54,'Toyota Technological Institute','http://www.toyota-ti.ac.jp/','豊田工業大学[Asia & Oceania]',NULL,38,'/Organization/16342'),
+ (55,'Tokyo Institute of Technology','http://www.titech.ac.jp/','東京工業大学[Asia & Oceania]',NULL,139,'/Organization/16224'),
+ (56,'Concordia University','http://www.concordia.ca/','[North America]',NULL,117,'/Organization/6400'),
+ (57,'University of Tromso','http://www.uit.no/','[Europe]',NULL,87,'/Organization/17078'),
+ (58,'University of Ulsan','http://www.ulsan.ac.kr/','[Asia & Oceania]',NULL,68,'/Organization/17152'),
+ (59,'Karlsruher Institute of Technology','http://www.kit.edu/','Karlsruher Institüt für Technologie[Europe]',NULL,144,'/Organization/2039'),
+ (60,'Norwegian University of Science & Technology','http://www.ntnu.no/','[Europe]',NULL,121,'/Organization/13557'),
+ (61,'Johannes Kepler Universität Linz','http://www.jku.at/','[Europe]',NULL,78,'/Organization/17654'),
+ (62,'University of Oslo','http://www.uio.no/','[Europe]',NULL,193,'/Organization/2460'),
+ (63,'Monash University','http://www.monash.edu.au/','[Asia & Oceania]',NULL,191,'/Organization/12781'),
+ (64,'Vienna University of Technology','http://www.tuwien.ac.at/','Technische Universität Wien[Europe]',NULL,136,'/Organization/16513'),
+ (65,'University of Groningen','http://www.rug.nl/','[Europe]',NULL,162,'/Organization/14747'),
+ (66,'Università degli Studi di Trento','http://www.unitn.it/','[Europe]',NULL,111,'/Organization/3788'),
+ (67,'University of Minnesota','http://www.umn.edu/','[North America]',NULL,334,'/Organization/17249'),
+ (68,'Myongji University','http://www.mju.ac.kr/','명지대학교[Asia & Oceania]',NULL,52,'/Organization/12721'),
+ (69,'Atomic Energy Commission','http://www.cea.fr/','Commissariat a l\'Ënergie Atomique[Europe]',NULL,173,'/Organization/1629'),
+ (70,'Nanyang Technological University','http://www.ntu.edu.sg/','[Asia & Oceania]',NULL,145,'/Organization/3702'),
+ (71,'Shibaura Institute of Technology','http://www.shibaura-it.ac.jp/','芝浦工業大学[Asia & Oceania]',NULL,44,'/Organization/15212'),
+ (72,'Leiden University','http://www.leidenuniv.nl/','[Europe]',NULL,188,'/Organization/2390'),
+ (73,'École Polytechnique Fédérale de Lausanne','http://www.epfl.ch/','[Europe]',NULL,220,'/Organization/7588'),
+ (74,'IBM','http://www.ibm.com/','[North America]',NULL,349,'/Organization/20354'),
+ (75,'La Trobe University','http://www.latrobe.edu.au/','[Asia & Oceania]',NULL,104,'/Organization/11965'),
+ (76,'Inha University','http://inha.ac.kr/','인하대학교[Asia & Oceania]',NULL,85,'/Organization/3544'),
+ (77,'Helsinki University of Technology','http://www.tkk.fi/','[Europe]',NULL,124,'/Organization/20539'),
+ (78,'Kookmin University','http://www.kookmin.ac.kr/','국민대학교[Asia & Oceania]',NULL,38,'/Organization/11703'),
+ (79,'University of Bielefeld','http://www.uni-bielefeld.de/','Universität Bielefeld[Europe]',NULL,118,'/Organization/17452'),
+ (80,'University of New South Wales','http://www.unsw.edu.au/','[Asia & Oceania]',NULL,202,'/Organization/18161'),
+ (81,'Linköping University','http://www.liu.se/','[Europe]',NULL,145,'/Organization/2969'),
+ (82,'University of Stavanger','http://www.uis.no/','[Europe]',NULL,65,'/Organization/17069'),
+ (83,'Memorial University of Newfoundland','http://www.mun.ca/','[North America]',NULL,110,'/Organization/12608'),
+ (84,'Medical University of Warsaw','http://www.wum.edu.pl/','[Europe]',NULL,67,'/Organization/19316'),
+ (85,'Universität Bern','http://www.unibe.ch/','[Europe]',NULL,181,'/Organization/17443'),
+ (86,'Kumoh National University of Technology','http://www.kumoh.ac.kr/','[Asia & Oceania]',NULL,27,'/Organization/11812'),
+ (87,'Pierre and Marie Curie University','http://www.upmc.fr/','Pierre and Marie Curie University[Europe]',NULL,100,'/Organization/649'),
+ (88,'University of East Anglia','http://www.uea.ac.uk/','[Europe]',NULL,159,'/Organization/16881'),
+ (89,'Korea University','http://www.korea.ac.kr/','고려대학교[Asia & Oceania]',NULL,111,'/Organization/11704'),
+ (90,'Eotvos Lorand University (University of Budapest)','http://www.elte.hu/','[Europe]',NULL,84,'/Organization/7429'),
+ (91,'The French National Institute for Research in Computer Science and Control','http://www.inria.fr/','Institut National de Recherche en Informatique et en Automatique[Europe]',NULL,186,'/Organization/1617'),
+ (92,'Max Planck Gesellschaft','http://www.mpg.de/','[Europe]',NULL,322,'/Organization/1963'),
+ (93,'Toyohashi University of Technology','http://www.tut.ac.jp/','国立大学法人豊橋技術科学大学[Asia & Oceania]',NULL,66,'/Organization/16505'),
+ (94,'Eindhoven University of Technology','http://www.tue.nl/','[Europe]',NULL,149,'/Organization/4012'),
+ (95,'Osaka Prefecture University','http://www.osakafu-u.ac.jp/','大阪府立大学[Asia & Oceania]',NULL,82,'/Organization/13806'),
+ (96,'ERNET India','http://www.ernet.in/','[Asia & Oceania]',NULL,169,'/Organization/1142'),
+ (97,'École Nationale Supérieure des Arts et Métiers','http://www.ensam.fr/','[Europe]',NULL,34,'/Organization/7518'),
+ (98,'Intel Corporation','http://www.intel.com/','[North America]',NULL,196,'/Organization/20534'),
+ (99,'Stanford University','http://www.stanford.edu/','[North America]',NULL,579,'/Organization/405'),
+ (100,'Institut National de la Recherche Agronomique INRA','http://www.inra.fr/','[Europe]',NULL,175,'/Organization/1619'),
+ (101,'National Chiao Tung University, Taiwan','http://www.nctu.edu.tw/','國立交通大學[Asia & Oceania]',NULL,120,'/Organization/13160'),
+ (102,'University of Jena','http://www.uni-jena.de/','Friedrich Schiller Universität Jena[Europe]',NULL,151,'/Organization/17613'),
+ (103,'University of Vienna','http://www.univie.ac.at/','Universität Wien[Europe]',NULL,172,'/Organization/17999'),
+ (104,'Nagaoka University of Technology','http://www.nagaokaut.ac.jp/','長岡技術科学大学[Asia & Oceania]',NULL,55,'/Organization/13053'),
+ (105,'Human Factors and Manpower Unit','http://www.eurocontrol.int/',NULL,NULL,14,'/Organization/20977'),
+ (106,'Tsinghua University China','http://www.tsinghua.edu.cn/','清华大学[Asia & Oceania]',NULL,152,'/Organization/16401'),
+ (107,'University of Amsterdam','http://www.uva.nl/','Universiteit van Amsterdam[Europe]',NULL,211,'/Organization/2426'),
+ (108,'UMR6070 Laboratoire Informatique, Signaux Systèmes de Sophia Antipolis','http://www.i3s.unice.fr/','[Europe]',NULL,48,'/Organization/1730'),
+ (109,'Can Tho University','http://www.ctu.edu.vn/','[Asia & Oceania]',NULL,21,'/Organization/6653'),
+ (110,'Sejong University','http://www.sejong.ac.kr/','세종대학교[Asia & Oceania]',NULL,49,'/Organization/15081'),
+ (111,'University of Leicester','http://www.le.ac.uk/','[Europe]',NULL,162,'/Organization/12007'),
+ (112,'Laboratoire Lorrain de Recherche en Informatique et Ses Applications','http://www.loria.fr/','[Europe]',NULL,75,'/Organization/1649'),
+ (113,'University of Da Nang','http://www.ud.edu.vn/','[Asia & Oceania]',NULL,6,'/Organization/16828'),
+ (114,'McGill University','http://www.mcgill.ca/','[North America]',NULL,294,'/Organization/212'),
+ (115,'University of Hannover','http://www.uni-hannover.de/','Universität Hannover[Europe]',NULL,95,'/Organization/17605'),
+ (116,'Korea Advanced Institute of Science & Technology','http://www.kaist.ac.kr/','[Asia & Oceania]',NULL,136,'/Organization/11300'),
+ (117,'Konkuk University','http://www.konkuk.ac.kr/','건국 대학교[Asia & Oceania]',NULL,71,'/Organization/11696'),
+ (118,'Waseda University','http://www.waseda.jp/','早稲田大学[Asia & Oceania]',NULL,102,'/Organization/18936');
+/*!40000 ALTER TABLE `org` ENABLE KEYS */;
+
+
+--
+-- Definition of table `paper`
+--
+
+DROP TABLE IF EXISTS `paper`;
+CREATE TABLE `paper` (
+  `idPaper` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `doi` varchar(100) DEFAULT NULL,
+  `isbn` varchar(100) DEFAULT NULL,
+  `url` varchar(1000) DEFAULT NULL,
+  `title` varchar(1000) DEFAULT NULL,
+  `abstract` mediumblob,
+  `volume` varchar(100) DEFAULT NULL,
+  `pages` varchar(100) DEFAULT NULL,
+  `year` int(10) unsigned DEFAULT NULL,
+  `viewPublication` mediumtext,
+  `bibTex` varchar(1000) DEFAULT NULL,
+  `endNote` varchar(1000) DEFAULT NULL,
+  `idJournal` int(10) unsigned DEFAULT NULL,
+  `idConference` int(10) unsigned DEFAULT NULL,
+  `idMagazine` int(10) unsigned DEFAULT NULL,
+  `version` int(3) DEFAULT NULL,
+  `paperFile` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`idPaper`),
+  KEY `fk_Paper_Journal1` (`idJournal`),
+  KEY `fk_Paper_Conference1` (`idConference`),
+  KEY `fk_Paper_Magazine1` (`idMagazine`),
+  KEY `index_Paper_url` (`url`(255)),
+  CONSTRAINT `fk_Paper_Journal1` FOREIGN KEY (`idJournal`) REFERENCES `journal` (`idJournal`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Paper_Conference1` FOREIGN KEY (`idConference`) REFERENCES `conference` (`idConference`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Paper_Magazine1` FOREIGN KEY (`idMagazine`) REFERENCES `magazine` (`idMagazine`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2004 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `paper`
+--
+
+/*!40000 ALTER TABLE `paper` DISABLE KEYS */;
+/*!40000 ALTER TABLE `paper` ENABLE KEYS */;
+
+
+--
+-- Definition of table `paper_keyword`
+--
+
+DROP TABLE IF EXISTS `paper_keyword`;
+CREATE TABLE `paper_keyword` (
+  `idPaper` int(10) unsigned NOT NULL,
+  `idKeyword` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idPaper`,`idKeyword`),
+  KEY `fk_Paper_has_Keyword_Keyword1` (`idKeyword`),
+  KEY `fk_Paper_has_Keyword_Paper1` (`idPaper`),
+  CONSTRAINT `fk_Paper_has_Keyword_Paper1` FOREIGN KEY (`idPaper`) REFERENCES `paper` (`idPaper`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Paper_has_Keyword_Keyword1` FOREIGN KEY (`idKeyword`) REFERENCES `keyword` (`idKeyword`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `paper_keyword`
+--
+
+/*!40000 ALTER TABLE `paper_keyword` DISABLE KEYS */;
+/*!40000 ALTER TABLE `paper_keyword` ENABLE KEYS */;
+
+
+--
+-- Definition of table `paper_paper`
+--
+
+DROP TABLE IF EXISTS `paper_paper`;
+CREATE TABLE `paper_paper` (
+  `idPaper` int(10) unsigned NOT NULL,
+  `idPaperRef` int(10) unsigned NOT NULL,
+  `citationContext` mediumtext,
+  PRIMARY KEY (`idPaper`,`idPaperRef`),
+  KEY `fk_Paper_has_Paper_Paper2` (`idPaperRef`),
+  KEY `fk_Paper_has_Paper_Paper1` (`idPaper`),
+  CONSTRAINT `fk_Paper_has_Paper_Paper1` FOREIGN KEY (`idPaper`) REFERENCES `paper` (`idPaper`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Paper_has_Paper_Paper2` FOREIGN KEY (`idPaperRef`) REFERENCES `paper` (`idPaper`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `paper_paper`
+--
+
+/*!40000 ALTER TABLE `paper_paper` DISABLE KEYS */;
+/*!40000 ALTER TABLE `paper_paper` ENABLE KEYS */;
+
+
+--
+-- Definition of table `paper_reviewer`
+--
+
+DROP TABLE IF EXISTS `paper_reviewer`;
+CREATE TABLE `paper_reviewer` (
+  `idPaper` int(10) unsigned NOT NULL,
+  `idReviewer` int(10) unsigned NOT NULL,
+  `rating` int(1) DEFAULT NULL,
+  `content` mediumtext,
+  PRIMARY KEY (`idPaper`,`idReviewer`),
+  KEY `fk_Paper_has_Reviewer_Reviewer1` (`idReviewer`),
+  KEY `fk_Paper_has_Reviewer_Paper1` (`idPaper`),
+  CONSTRAINT `fk_Paper_has_Reviewer_Paper1` FOREIGN KEY (`idPaper`) REFERENCES `paper` (`idPaper`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Paper_has_Reviewer_Reviewer1` FOREIGN KEY (`idReviewer`) REFERENCES `reviewer` (`idReviewer`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `paper_reviewer`
+--
+
+/*!40000 ALTER TABLE `paper_reviewer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `paper_reviewer` ENABLE KEYS */;
+
+
+--
+-- Definition of table `pcmember`
+--
+
+DROP TABLE IF EXISTS `pcmember`;
+CREATE TABLE `pcmember` (
+  `idPCMember` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `pcMemberName` varchar(1000) DEFAULT NULL,
+  `image` varchar(1000) DEFAULT NULL,
+  `emailAddress` varchar(1000) DEFAULT NULL,
+  `website` varchar(1000) DEFAULT NULL,
+  `organization` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`idPCMember`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `pcmember`
+--
+
+/*!40000 ALTER TABLE `pcmember` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pcmember` ENABLE KEYS */;
+
+
+--
+-- Definition of table `reviewer`
+--
+
+DROP TABLE IF EXISTS `reviewer`;
+CREATE TABLE `reviewer` (
+  `idReviewer` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `reviewerName` varchar(1000) DEFAULT NULL,
+  `image` varchar(1000) DEFAULT NULL,
+  `emailAddress` varchar(1000) DEFAULT NULL,
+  `website` varchar(1000) DEFAULT NULL,
+  `organization` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`idReviewer`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `reviewer`
+--
+
+/*!40000 ALTER TABLE `reviewer` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reviewer` ENABLE KEYS */;
+
+
+--
+-- Definition of table `subdomain`
+--
+
+DROP TABLE IF EXISTS `subdomain`;
+CREATE TABLE `subdomain` (
+  `idSubdomain` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `subdomainName` varchar(1000) DEFAULT NULL,
+  `idDomain` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idSubdomain`),
+  KEY `fk_Subdomain_Domain1` (`idDomain`),
+  CONSTRAINT `fk_Subdomain_Domain1` FOREIGN KEY (`idDomain`) REFERENCES `domain` (`idDomain`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `subdomain`
+--
+
+/*!40000 ALTER TABLE `subdomain` DISABLE KEYS */;
+INSERT INTO `subdomain` (`idSubdomain`,`subdomainName`,`idDomain`) VALUES 
+ (1,'Algorithms & Theory',2),
+ (2,'Security & Privacy',2),
+ (3,'Hardware & Architecture',2),
+ (4,'Software Engineering',2),
+ (5,'Artificial Intelligence',2),
+ (6,'Machine Learning & Pattern Recognition',2),
+ (7,'Data Mining',2),
+ (8,'Information Retrieval',2),
+ (9,'Natural Language & Speech',2),
+ (10,'Graphics',2),
+ (11,'Computer Vision',2),
+ (12,'Human-Computer Interaction',2),
+ (13,'Multimedia',2),
+ (14,'Networks & Communications',2),
+ (15,'World Wide Web',2),
+ (16,'Distributed & Parallel Computing',2),
+ (17,'Operating Systems',2),
+ (18,'Databases',2),
+ (19,'Real-Time & Embedded Systems',2),
+ (20,'Simulation',2),
+ (21,'Bioinformatics & Computational Biology',2),
+ (22,'Scientific Computing',2),
+ (23,'Computer Education',2),
+ (24,'Programming Languages',2);
+/*!40000 ALTER TABLE `subdomain` ENABLE KEYS */;
+
+
+--
+-- Definition of table `subdomain_paper`
+--
+
+DROP TABLE IF EXISTS `subdomain_paper`;
+CREATE TABLE `subdomain_paper` (
+  `idPaper` int(10) unsigned NOT NULL,
+  `idSubdomain` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idPaper`,`idSubdomain`),
+  KEY `fk_Subdomain_has_Paper_Paper1` (`idPaper`),
+  KEY `fk_Subdomain_has_Paper_Subdomain1` (`idSubdomain`),
+  CONSTRAINT `fk_Subdomain_has_Paper_Subdomain1` FOREIGN KEY (`idSubdomain`) REFERENCES `subdomain` (`idSubdomain`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Subdomain_has_Paper_Paper1` FOREIGN KEY (`idPaper`) REFERENCES `paper` (`idPaper`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `subdomain_paper`
+--
+
+/*!40000 ALTER TABLE `subdomain_paper` DISABLE KEYS */;
+/*!40000 ALTER TABLE `subdomain_paper` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

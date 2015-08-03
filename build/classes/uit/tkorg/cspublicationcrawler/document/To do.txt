@@ -1,0 +1,4 @@
+1. Handle DB connection error to prevent and avoid data loss.
+2. Manage threads better.
+3. Enable Citation context crawling function.
+4. Get files of publication.
