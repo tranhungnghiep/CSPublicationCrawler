@@ -9,7 +9,7 @@ public class CSPublicationCrawlerConst {
 	public static final String PORT = "3306";
 	public static final String DATABASE = "CSPublicationCrawler";
 	public static final String USERNAME = "root";
-	public static final String PASSWORD = "hntin1975";
+	public static final String PASSWORD = "root";
         
 	public static final String HOSTMSSQLSERVER = "localhost";
 	public static final String PORTMSSQLSERVER = "1433";
