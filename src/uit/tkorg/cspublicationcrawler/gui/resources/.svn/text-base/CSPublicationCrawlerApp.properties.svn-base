@@ -1,0 +1,11 @@
+# Application global resources
+
+Application.name = CSPublicationCrawler
+Application.title = CSPublicationCrawler
+Application.version = 1.0
+Application.vendor = UIT.TKORG
+Application.homepage = http\://www.uit.edu.vn/
+Application.description = A java Desktop Application for Crawling CS Publications from Online Lib.
+Application.vendorId = UIT
+Application.id = CSPublicationCrawler
+Application.lookAndFeel = system

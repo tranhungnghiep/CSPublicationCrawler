@@ -1,0 +1,119 @@
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess
+END
+PCMemberMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/PCMemberMapper.java
+END
+AuthorPaperMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 161
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/AuthorPaperMapper.java
+END
+MagazineMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 158
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/MagazineMapper.java
+END
+PaperPaperMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/PaperPaperMapper.java
+END
+AuthorMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/AuthorMapper.java
+END
+CommentMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/CommentMapper.java
+END
+PaperMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 155
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/PaperMapper.java
+END
+ConferenceMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 160
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/ConferenceMapper.java
+END
+DomainMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 156
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/DomainMapper.java
+END
+AuthorKeywordMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 163
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/AuthorKeywordMapper.java
+END
+SubdomainPaperMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/SubdomainPaperMapper.java
+END
+JournalMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/JournalMapper.java
+END
+PaperKeywordMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/PaperKeywordMapper.java
+END
+SubdomainMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/SubdomainMapper.java
+END
+ConferencePCMemberMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 168
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/ConferencePCMemberMapper.java
+END
+KeywordMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/KeywordMapper.java
+END
+MapperDB.java
+K 25
+svn:wc:ra_dav:version-url
+V 152
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/MapperDB.java
+END
+AuthorInstanceMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/AuthorInstanceMapper.java
+END
+OrgMapper.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbaccess/OrgMapper.java
+END

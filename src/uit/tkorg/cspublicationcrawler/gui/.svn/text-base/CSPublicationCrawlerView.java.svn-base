@@ -1,0 +1,823 @@
+/*
+ * CSPublicationCrawlerView.java
+ */
+package uit.tkorg.cspublicationcrawler.gui;
+/**
+
+ * @author Huong Tran
+ */
+
+import org.jdesktop.application.Action;
+import org.jdesktop.application.ResourceMap;
+import org.jdesktop.application.SingleFrameApplication;
+import org.jdesktop.application.FrameView;
+import org.jdesktop.application.TaskMonitor;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.Timer;
+import javax.swing.Icon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.Document;
+import uit.tkorg.cspublicationcrawler.bo.CSPublicationCrawlerBO;
+import uit.tkorg.cspublicationcrawler.controller.MASController;
+import uit.tkorg.cspublicationcrawler.dbaccess.DomainMapper;
+import uit.tkorg.cspublicationcrawler.dbaccess.SubdomainMapper;
+
+
+
+
+/**
+ * The application's main frame.
+ */
+public class CSPublicationCrawlerView extends FrameView {
+
+    public CSPublicationCrawlerView(SingleFrameApplication app) {
+        super(app);
+
+        initComponents();
+ //       MASController.doCrawler("Security & Privacy");
+        // status bar initialization - message timeout, idle icon and busy animation, etc
+        ResourceMap resourceMap = getResourceMap();
+        int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
+        messageTimer = new Timer(messageTimeout, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                statusMessageLabel.setText("");
+            }
+        });
+        messageTimer.setRepeats(false);
+        int busyAnimationRate = resourceMap.getInteger("StatusBar.busyAnimationRate");
+        for (int i = 0; i < busyIcons.length; i++) {
+            busyIcons[i] = resourceMap.getIcon("StatusBar.busyIcons[" + i + "]");
+        }
+        busyIconTimer = new Timer(busyAnimationRate, new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                busyIconIndex = (busyIconIndex + 1) % busyIcons.length;
+                statusAnimationLabel.setIcon(busyIcons[busyIconIndex]);
+            }
+        });
+        idleIcon = resourceMap.getIcon("StatusBar.idleIcon");
+        statusAnimationLabel.setIcon(idleIcon);
+        progressBar.setVisible(false);
+
+        // connecting action tasks to status bar via TaskMonitor
+        TaskMonitor taskMonitor = new TaskMonitor(getApplication().getContext());
+        taskMonitor.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                String propertyName = evt.getPropertyName();
+                if ("started".equals(propertyName)) {
+                    if (!busyIconTimer.isRunning()) {
+                        statusAnimationLabel.setIcon(busyIcons[0]);
+                        busyIconIndex = 0;
+                        busyIconTimer.start();
+                    }
+                    progressBar.setVisible(true);
+                    progressBar.setIndeterminate(true);
+                } else if ("done".equals(propertyName)) {
+                    busyIconTimer.stop();
+                    statusAnimationLabel.setIcon(idleIcon);
+                    progressBar.setVisible(false);
+                    progressBar.setValue(0);
+                } else if ("message".equals(propertyName)) {
+                    String text = (String)(evt.getNewValue());
+                    statusMessageLabel.setText((text == null) ? "" : text);
+                    messageTimer.restart();
+                } else if ("progress".equals(propertyName)) {
+                    int value = (Integer)(evt.getNewValue());
+                    progressBar.setVisible(true);
+                    progressBar.setIndeterminate(false);
+                    progressBar.setValue(value);
+                }
+            }
+        });
+    }
+
+//    public CSPublicationCrawlerView(CSPublicationCrawlerBO model) {
+//        throw new UnsupportedOperationException("Not yet implemented");
+//    }
+
+    @Action
+    public void showAboutBox() {
+        if (aboutBox == null) {
+            JFrame mainFrame = CSPublicationCrawlerApp.getApplication().getMainFrame();
+            aboutBox = new CSPublicationCrawlerAboutBox(mainFrame);
+            aboutBox.setLocationRelativeTo(mainFrame);
+        }
+        CSPublicationCrawlerApp.getApplication().show(aboutBox);
+    }
+
+    /** This method is called from within the constructor to
+     * initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is
+     * always regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        mainPanel = new javax.swing.JPanel();
+        mainToolBar = new javax.swing.JToolBar();
+        importDBLPToggleButton = new javax.swing.JToggleButton();
+        crawlerToggleButton = new javax.swing.JToggleButton();
+        startCrawlingToggleButton = new javax.swing.JToggleButton();
+        pauseToggleButton = new javax.swing.JToggleButton();
+        stopToggleButton = new javax.swing.JToggleButton();
+        settingToggleButton = new javax.swing.JToggleButton();
+        helpToggleButton = new javax.swing.JToggleButton();
+        mainSplitPane = new javax.swing.JSplitPane();
+        jPanel1 = new javax.swing.JPanel();
+        mainTabbedPane = new javax.swing.JTabbedPane();
+        masPanel = new javax.swing.JPanel();
+        ojectLabel = new javax.swing.JLabel();
+        objectComboBox = new javax.swing.JComboBox();
+        domainLabel = new javax.swing.JLabel();
+        subdomainLabel = new javax.swing.JLabel();
+        allyearLabel = new javax.swing.JLabel();
+        maxobjectsLabel = new javax.swing.JLabel();
+        domainComboBox = new javax.swing.JComboBox();
+        subdomainComboBox = new javax.swing.JComboBox();
+        allyearComboBox = new javax.swing.JComboBox();
+        maxobjectsTextField = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        googlePanel = new javax.swing.JPanel();
+        ieePanel = new javax.swing.JPanel();
+        citeseerxPanel = new javax.swing.JPanel();
+        acmPanel = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        outputLabel = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        outputTextArea = new javax.swing.JTextArea();
+        menuBar = new javax.swing.JMenuBar();
+        javax.swing.JMenu fileMenu = new javax.swing.JMenu();
+        javax.swing.JMenuItem exitMenuItem = new javax.swing.JMenuItem();
+        javax.swing.JMenu helpMenu = new javax.swing.JMenu();
+        javax.swing.JMenuItem aboutMenuItem = new javax.swing.JMenuItem();
+        statusPanel = new javax.swing.JPanel();
+        javax.swing.JSeparator statusPanelSeparator = new javax.swing.JSeparator();
+        statusMessageLabel = new javax.swing.JLabel();
+        statusAnimationLabel = new javax.swing.JLabel();
+        noPublicationsLabel = new javax.swing.JLabel();
+        noPublicationsTextField = new javax.swing.JTextField();
+        noAuthorsLabel = new javax.swing.JLabel();
+        noAuthorsTextField = new javax.swing.JTextField();
+        progressBar = new javax.swing.JProgressBar();
+
+        mainPanel.setName("mainPanel"); // NOI18N
+        mainPanel.setPreferredSize(new java.awt.Dimension(800, 600));
+
+        mainToolBar.setRollover(true);
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(uit.tkorg.cspublicationcrawler.gui.CSPublicationCrawlerApp.class).getContext().getResourceMap(CSPublicationCrawlerView.class);
+        mainToolBar.setToolTipText(resourceMap.getString("mainToolBar.toolTipText")); // NOI18N
+        mainToolBar.setName("mainToolBar"); // NOI18N
+
+        importDBLPToggleButton.setIcon(resourceMap.getIcon("importDBLPToggleButton.icon")); // NOI18N
+        importDBLPToggleButton.setText(resourceMap.getString("importDBLPToggleButton.text")); // NOI18N
+        importDBLPToggleButton.setToolTipText(resourceMap.getString("importDBLPToggleButton.toolTipText")); // NOI18N
+        importDBLPToggleButton.setFocusable(false);
+        importDBLPToggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        importDBLPToggleButton.setName("importDBLPToggleButton"); // NOI18N
+        importDBLPToggleButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        mainToolBar.add(importDBLPToggleButton);
+
+        crawlerToggleButton.setIcon(resourceMap.getIcon("crawler.icon")); // NOI18N
+        crawlerToggleButton.setText(resourceMap.getString("crawler.text")); // NOI18N
+        crawlerToggleButton.setToolTipText(resourceMap.getString("crawler.toolTipText")); // NOI18N
+        crawlerToggleButton.setFocusable(false);
+        crawlerToggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        crawlerToggleButton.setName("crawler"); // NOI18N
+        crawlerToggleButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        mainToolBar.add(crawlerToggleButton);
+
+        startCrawlingToggleButton.setIcon(resourceMap.getIcon("startCrawlingToggleButton.icon")); // NOI18N
+        startCrawlingToggleButton.setText(resourceMap.getString("startCrawlingToggleButton.text")); // NOI18N
+        startCrawlingToggleButton.setToolTipText(resourceMap.getString("startCrawlingToggleButton.toolTipText")); // NOI18N
+        startCrawlingToggleButton.setEnabled(false);
+        startCrawlingToggleButton.setFocusable(false);
+        startCrawlingToggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        startCrawlingToggleButton.setName("startCrawlingToggleButton"); // NOI18N
+        startCrawlingToggleButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        startCrawlingToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startCrawlingToggleButtonActionPerformed(evt);
+            }
+        });
+        mainToolBar.add(startCrawlingToggleButton);
+
+        pauseToggleButton.setIcon(resourceMap.getIcon("pauseToggleButton.icon")); // NOI18N
+        pauseToggleButton.setText(resourceMap.getString("pauseToggleButton.text")); // NOI18N
+        pauseToggleButton.setToolTipText(resourceMap.getString("pauseToggleButton.toolTipText")); // NOI18N
+        pauseToggleButton.setEnabled(false);
+        pauseToggleButton.setFocusable(false);
+        pauseToggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        pauseToggleButton.setName("pauseToggleButton"); // NOI18N
+        pauseToggleButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        pauseToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pauseToggleButtonActionPerformed(evt);
+            }
+        });
+        mainToolBar.add(pauseToggleButton);
+
+        stopToggleButton.setIcon(resourceMap.getIcon("stopToggleButton.icon")); // NOI18N
+        stopToggleButton.setText(resourceMap.getString("stopToggleButton.text")); // NOI18N
+        stopToggleButton.setToolTipText(resourceMap.getString("stopToggleButton.toolTipText")); // NOI18N
+        stopToggleButton.setEnabled(false);
+        stopToggleButton.setFocusable(false);
+        stopToggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        stopToggleButton.setName("stopToggleButton"); // NOI18N
+        stopToggleButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        stopToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stopToggleButtonActionPerformed(evt);
+            }
+        });
+        mainToolBar.add(stopToggleButton);
+
+        settingToggleButton.setIcon(resourceMap.getIcon("settingToggleButton.icon")); // NOI18N
+        settingToggleButton.setToolTipText(resourceMap.getString("settingToggleButton.toolTipText")); // NOI18N
+        settingToggleButton.setFocusable(false);
+        settingToggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        settingToggleButton.setLabel(resourceMap.getString("settingToggleButton.label")); // NOI18N
+        settingToggleButton.setName("settingToggleButton"); // NOI18N
+        settingToggleButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        settingToggleButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                settingToggleButtonActionPerformed(evt);
+            }
+        });
+        mainToolBar.add(settingToggleButton);
+
+        helpToggleButton.setIcon(resourceMap.getIcon("helpToggleButton.icon")); // NOI18N
+        helpToggleButton.setText(resourceMap.getString("helpToggleButton.text")); // NOI18N
+        helpToggleButton.setToolTipText(resourceMap.getString("helpToggleButton.toolTipText")); // NOI18N
+        helpToggleButton.setFocusable(false);
+        helpToggleButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        helpToggleButton.setName("helpToggleButton"); // NOI18N
+        helpToggleButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        mainToolBar.add(helpToggleButton);
+
+        mainSplitPane.setName("mainSplitPane"); // NOI18N
+
+        jPanel1.setName("jPanel1"); // NOI18N
+
+        mainTabbedPane.setFont(resourceMap.getFont("mainTabbedPane.font")); // NOI18N
+        mainTabbedPane.setName("mainTabbedPane"); // NOI18N
+
+        masPanel.setName("masPanel"); // NOI18N
+
+        ojectLabel.setText(resourceMap.getString("ojectLabel.text")); // NOI18N
+        ojectLabel.setName("ojectLabel"); // NOI18N
+
+        objectComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Author", "Publication", "Conference","Journal","Organization","Keyword"}));
+        objectComboBox.setToolTipText(resourceMap.getString("objectComboBox.toolTipText")); // NOI18N
+        objectComboBox.setName("objectComboBox"); // NOI18N
+
+        domainLabel.setText(resourceMap.getString("domainLabel.text")); // NOI18N
+        domainLabel.setName("domainLabel"); // NOI18N
+
+        subdomainLabel.setText(resourceMap.getString("subdomainLabel.text")); // NOI18N
+        subdomainLabel.setName("subdomainLabel"); // NOI18N
+
+        allyearLabel.setText(resourceMap.getString("allyearLabel.text")); // NOI18N
+        allyearLabel.setName("allyearLabel"); // NOI18N
+
+        maxobjectsLabel.setText(resourceMap.getString("maxobjectsLabel.text")); // NOI18N
+        maxobjectsLabel.setName("maxobjectsLabel"); // NOI18N
+
+        domainComboBox.addItem("(none)");
+        try{
+            DomainMapper mapper = new DomainMapper();
+            ResultSet rs = mapper.getListObj();
+            while (rs!=null && rs.next()){
+                String domainName = rs.getString("domainName");
+                domainComboBox.addItem(domainName);
+            }
+            mapper.closeConnection();
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+            MASController.logger.severe("EXCEPTION: " + ex.toString());
+            Object[] arrObj = ex.getStackTrace();
+            if (arrObj != null)
+            for (Object stackTraceElement : arrObj)
+            MASController.logger.severe("\tat " + stackTraceElement.toString());
+        }
+        domainComboBox.setToolTipText(resourceMap.getString("domainComboBox.toolTipText")); // NOI18N
+        domainComboBox.setName("domainComboBox"); // NOI18N
+        domainComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                domainComboBoxActionPerformed(evt);
+            }
+        });
+
+        subdomainComboBox.setToolTipText(resourceMap.getString("subdomainComboBox.toolTipText")); // NOI18N
+        subdomainComboBox.setEnabled(false);
+        subdomainComboBox.setName("subdomainComboBox"); // NOI18N
+
+        allyearComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Within 5 years", "Within 10 years", "All" }));
+        allyearComboBox.setToolTipText(resourceMap.getString("allyearComboBox.toolTipText")); // NOI18N
+        allyearComboBox.setName("allyearComboBox"); // NOI18N
+
+        maxobjectsTextField.setText(resourceMap.getString("maxobjectsTextField.text")); // NOI18N
+        maxobjectsTextField.setToolTipText(resourceMap.getString("maxobjectsTextField.toolTipText")); // NOI18N
+        maxobjectsTextField.setName("maxobjectsTextField"); // NOI18N
+
+        jSeparator2.setName("jSeparator2"); // NOI18N
+
+        javax.swing.GroupLayout masPanelLayout = new javax.swing.GroupLayout(masPanel);
+        masPanel.setLayout(masPanelLayout);
+        masPanelLayout.setHorizontalGroup(
+            masPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(masPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(masPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(maxobjectsLabel)
+                    .addComponent(ojectLabel)
+                    .addComponent(subdomainLabel)
+                    .addComponent(allyearLabel)
+                    .addComponent(domainLabel))
+                .addGap(12, 12, 12)
+                .addGroup(masPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(maxobjectsTextField)
+                    .addComponent(subdomainComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(domainComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(objectComboBox, 0, 178, Short.MAX_VALUE)
+                    .addComponent(allyearComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(83, 83, 83))
+            .addComponent(jSeparator2, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
+        );
+        masPanelLayout.setVerticalGroup(
+            masPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(masPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(masPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(masPanelLayout.createSequentialGroup()
+                        .addComponent(ojectLabel)
+                        .addGap(10, 10, 10)
+                        .addComponent(domainLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(subdomainLabel)
+                        .addGap(14, 14, 14)
+                        .addComponent(allyearLabel)
+                        .addGap(14, 14, 14)
+                        .addComponent(maxobjectsLabel))
+                    .addGroup(masPanelLayout.createSequentialGroup()
+                        .addComponent(objectComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(domainComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(subdomainComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(allyearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(8, 8, 8)
+                        .addComponent(maxobjectsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(21, 21, 21)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        mainTabbedPane.addTab(resourceMap.getString("masPanel.TabConstraints.tabTitle"), masPanel); // NOI18N
+
+        googlePanel.setName("googlePanel"); // NOI18N
+
+        javax.swing.GroupLayout googlePanelLayout = new javax.swing.GroupLayout(googlePanel);
+        googlePanel.setLayout(googlePanelLayout);
+        googlePanelLayout.setHorizontalGroup(
+            googlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 372, Short.MAX_VALUE)
+        );
+        googlePanelLayout.setVerticalGroup(
+            googlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 425, Short.MAX_VALUE)
+        );
+
+        mainTabbedPane.addTab(resourceMap.getString("googlePanel.TabConstraints.tabTitle"), googlePanel); // NOI18N
+
+        ieePanel.setName("ieePanel"); // NOI18N
+
+        javax.swing.GroupLayout ieePanelLayout = new javax.swing.GroupLayout(ieePanel);
+        ieePanel.setLayout(ieePanelLayout);
+        ieePanelLayout.setHorizontalGroup(
+            ieePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 372, Short.MAX_VALUE)
+        );
+        ieePanelLayout.setVerticalGroup(
+            ieePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 425, Short.MAX_VALUE)
+        );
+
+        mainTabbedPane.addTab(resourceMap.getString("ieePanel.TabConstraints.tabTitle"), ieePanel); // NOI18N
+
+        citeseerxPanel.setName("citeseerxPanel"); // NOI18N
+
+        javax.swing.GroupLayout citeseerxPanelLayout = new javax.swing.GroupLayout(citeseerxPanel);
+        citeseerxPanel.setLayout(citeseerxPanelLayout);
+        citeseerxPanelLayout.setHorizontalGroup(
+            citeseerxPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 372, Short.MAX_VALUE)
+        );
+        citeseerxPanelLayout.setVerticalGroup(
+            citeseerxPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 425, Short.MAX_VALUE)
+        );
+
+        mainTabbedPane.addTab(resourceMap.getString("citeseerxPanel.TabConstraints.tabTitle"), citeseerxPanel); // NOI18N
+
+        acmPanel.setName("acmPanel"); // NOI18N
+
+        javax.swing.GroupLayout acmPanelLayout = new javax.swing.GroupLayout(acmPanel);
+        acmPanel.setLayout(acmPanelLayout);
+        acmPanelLayout.setHorizontalGroup(
+            acmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 372, Short.MAX_VALUE)
+        );
+        acmPanelLayout.setVerticalGroup(
+            acmPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 425, Short.MAX_VALUE)
+        );
+
+        mainTabbedPane.addTab(resourceMap.getString("acmPanel.TabConstraints.tabTitle"), acmPanel); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 397, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(mainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 464, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(mainTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 453, Short.MAX_VALUE)))
+        );
+
+        mainSplitPane.setLeftComponent(jPanel1);
+
+        jPanel2.setName("jPanel2"); // NOI18N
+
+        outputLabel.setText(resourceMap.getString("outputLabel.text")); // NOI18N
+        outputLabel.setName("outputLabel"); // NOI18N
+
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
+
+        TextAreaOutputStream taos = new TextAreaOutputStream( outputTextArea, 60 );
+        PrintStream ps = new PrintStream( taos );
+        System.setOut( ps );
+        System.setErr( ps );
+        outputTextArea.setColumns(20);
+        outputTextArea.setRows(5);
+        outputTextArea.setName("outputTextArea"); // NOI18N
+        jScrollPane1.setViewportView(outputTextArea);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 628, Short.MAX_VALUE)
+                    .addComponent(outputLabel))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(outputLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 425, Short.MAX_VALUE))
+        );
+
+        mainSplitPane.setRightComponent(jPanel2);
+
+        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
+        mainPanel.setLayout(mainPanelLayout);
+        mainPanelLayout.setHorizontalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(mainToolBar, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
+            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainPanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(mainSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1052, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        mainPanelLayout.setVerticalGroup(
+            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(mainPanelLayout.createSequentialGroup()
+                .addComponent(mainToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(480, Short.MAX_VALUE))
+            .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(mainPanelLayout.createSequentialGroup()
+                    .addGap(62, 62, 62)
+                    .addComponent(mainSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
+        menuBar.setName("menuBar"); // NOI18N
+
+        fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
+        fileMenu.setName("fileMenu"); // NOI18N
+
+        javax.swing.ActionMap actionMap = org.jdesktop.application.Application.getInstance(uit.tkorg.cspublicationcrawler.gui.CSPublicationCrawlerApp.class).getContext().getActionMap(CSPublicationCrawlerView.class, this);
+        exitMenuItem.setAction(actionMap.get("quit")); // NOI18N
+        exitMenuItem.setName("exitMenuItem"); // NOI18N
+        fileMenu.add(exitMenuItem);
+
+        menuBar.add(fileMenu);
+
+        helpMenu.setText(resourceMap.getString("helpMenu.text")); // NOI18N
+        helpMenu.setName("helpMenu"); // NOI18N
+
+        aboutMenuItem.setAction(actionMap.get("showAboutBox")); // NOI18N
+        aboutMenuItem.setName("aboutMenuItem"); // NOI18N
+        helpMenu.add(aboutMenuItem);
+
+        menuBar.add(helpMenu);
+
+        statusPanel.setToolTipText(resourceMap.getString("statusPanel.toolTipText")); // NOI18N
+        statusPanel.setName("statusPanel"); // NOI18N
+
+        statusPanelSeparator.setName("statusPanelSeparator"); // NOI18N
+
+        statusMessageLabel.setName("statusMessageLabel"); // NOI18N
+
+        statusAnimationLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        statusAnimationLabel.setName("statusAnimationLabel"); // NOI18N
+
+        noPublicationsLabel.setText(resourceMap.getString("noPublicationsLabel.text")); // NOI18N
+        noPublicationsLabel.setName("noPublicationsLabel"); // NOI18N
+
+        noPublicationsTextField.setName("noPublicationsTextField"); // NOI18N
+
+        noAuthorsLabel.setText(resourceMap.getString("noAuthorsLabel.text")); // NOI18N
+        noAuthorsLabel.setName("noAuthorsLabel"); // NOI18N
+
+        noAuthorsTextField.setName("noAuthorsTextField"); // NOI18N
+
+        progressBar.setName("progressBar"); // NOI18N
+
+        javax.swing.GroupLayout statusPanelLayout = new javax.swing.GroupLayout(statusPanel);
+        statusPanel.setLayout(statusPanelLayout);
+        statusPanelLayout.setHorizontalGroup(
+            statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(statusPanelSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 1072, Short.MAX_VALUE)
+            .addGroup(statusPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(statusMessageLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 664, Short.MAX_VALUE)
+                .addGroup(statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(progressBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, statusPanelLayout.createSequentialGroup()
+                        .addComponent(noPublicationsLabel)
+                        .addGap(6, 6, 6)
+                        .addComponent(noPublicationsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
+                        .addComponent(noAuthorsLabel)
+                        .addGap(6, 6, 6)
+                        .addComponent(noAuthorsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(statusAnimationLabel)
+                .addContainerGap())
+        );
+        statusPanelLayout.setVerticalGroup(
+            statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(statusPanelLayout.createSequentialGroup()
+                .addComponent(statusPanelSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(statusPanelLayout.createSequentialGroup()
+                        .addGroup(statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(statusMessageLabel)
+                            .addComponent(statusAnimationLabel))
+                        .addGap(25, 25, 25))
+                    .addGroup(statusPanelLayout.createSequentialGroup()
+                        .addGroup(statusPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(noAuthorsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(noAuthorsLabel)
+                            .addComponent(noPublicationsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(noPublicationsLabel))
+                        .addGap(15, 15, 15)
+                        .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+        );
+
+        statusPanel.getAccessibleContext().setAccessibleParent(mainPanel);
+
+        setComponent(mainPanel);
+        setMenuBar(menuBar);
+        setStatusBar(statusPanel);
+    }// </editor-fold>//GEN-END:initComponents
+
+private void settingToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingToggleButtonActionPerformed
+// TODO add your handling code here:
+    if (settingView == null) {
+            JFrame mainFrame = CSPublicationCrawlerApp.getApplication().getMainFrame();
+            settingView = new CSPublicationCrawlerSettingView();
+            settingView.setDefaultCloseOperation(1);
+            settingView.setLocationRelativeTo(mainFrame);
+        }
+        CSPublicationCrawlerApp.getApplication().show(settingView);
+    
+}//GEN-LAST:event_settingToggleButtonActionPerformed
+
+private void startCrawlingToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startCrawlingToggleButtonActionPerformed
+    startCrawlingToggleButton.setEnabled(false);
+    pauseToggleButton.setEnabled(true);
+    stopToggleButton.setEnabled(true);
+    String subdomain = subdomainComboBox.getSelectedItem().toString();
+    MASController.doCrawler(subdomain);
+    
+}//GEN-LAST:event_startCrawlingToggleButtonActionPerformed
+
+private void domainComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_domainComboBoxActionPerformed
+    String item = (String)domainComboBox.getSelectedItem(); 
+        if (item == null || item.equals("(none)") )
+        { 
+            subdomainComboBox.setEnabled(false);
+            subdomainComboBox.setModel( new DefaultComboBoxModel() ); 
+        } 
+        else 
+        { 
+            try{
+                subdomainComboBox.setModel( new DefaultComboBoxModel()); 
+                SubdomainMapper mapper = new SubdomainMapper();
+                ResultSet rs = mapper.getListObj(item);
+                    while (rs!=null && rs.next()){
+                    String subdomainName = rs.getString("subdomainName");
+                    if (subdomainName==null){
+                        subdomainComboBox.setEnabled(false);
+                        startCrawlingToggleButton.setEnabled(false);
+                        return;
+                    }
+                    else{
+                        subdomainComboBox.addItem(subdomainName);   
+                    }
+                }
+                subdomainComboBox.setEnabled(true);
+                startCrawlingToggleButton.setEnabled(true);
+                mapper.closeConnection();
+            }
+            catch (Exception ex) {
+                ex.printStackTrace();
+                MASController.logger.severe("EXCEPTION: " + ex.toString());
+                Object[] arrObj = ex.getStackTrace();
+                if (arrObj != null)
+                for (Object stackTraceElement : arrObj)
+                    MASController.logger.severe("\tat " + stackTraceElement.toString());
+            }
+            //subdomainComboBox.setSelectedIndex(0);
+        } 
+}//GEN-LAST:event_domainComboBoxActionPerformed
+
+private void pauseToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseToggleButtonActionPerformed
+    startCrawlingToggleButton.setEnabled(true);
+    pauseToggleButton.setEnabled(false);
+    stopToggleButton.setEnabled(false);
+}//GEN-LAST:event_pauseToggleButtonActionPerformed
+
+private void stopToggleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopToggleButtonActionPerformed
+    startCrawlingToggleButton.setEnabled(true);
+    pauseToggleButton.setEnabled(false);
+    stopToggleButton.setEnabled(false);
+}//GEN-LAST:event_stopToggleButtonActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel acmPanel;
+    private javax.swing.JComboBox allyearComboBox;
+    private javax.swing.JLabel allyearLabel;
+    private javax.swing.JPanel citeseerxPanel;
+    private javax.swing.JToggleButton crawlerToggleButton;
+    private javax.swing.JComboBox domainComboBox;
+    private javax.swing.JLabel domainLabel;
+    private javax.swing.JPanel googlePanel;
+    private javax.swing.JToggleButton helpToggleButton;
+    private javax.swing.JPanel ieePanel;
+    private javax.swing.JToggleButton importDBLPToggleButton;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JSplitPane mainSplitPane;
+    static javax.swing.JTabbedPane mainTabbedPane;
+    private javax.swing.JToolBar mainToolBar;
+    private javax.swing.JPanel masPanel;
+    private javax.swing.JLabel maxobjectsLabel;
+    private javax.swing.JTextField maxobjectsTextField;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JLabel noAuthorsLabel;
+    private javax.swing.JTextField noAuthorsTextField;
+    private javax.swing.JLabel noPublicationsLabel;
+    private javax.swing.JTextField noPublicationsTextField;
+    private javax.swing.JComboBox objectComboBox;
+    private javax.swing.JLabel ojectLabel;
+    private javax.swing.JLabel outputLabel;
+    private javax.swing.JTextArea outputTextArea;
+    private javax.swing.JToggleButton pauseToggleButton;
+    private javax.swing.JProgressBar progressBar;
+    private javax.swing.JToggleButton settingToggleButton;
+    private javax.swing.JToggleButton startCrawlingToggleButton;
+    private javax.swing.JLabel statusAnimationLabel;
+    private javax.swing.JLabel statusMessageLabel;
+    private javax.swing.JPanel statusPanel;
+    private javax.swing.JToggleButton stopToggleButton;
+    private javax.swing.JComboBox subdomainComboBox;
+    private javax.swing.JLabel subdomainLabel;
+    // End of variables declaration//GEN-END:variables
+
+    private final Timer messageTimer;
+    private final Timer busyIconTimer;
+    private final Icon idleIcon;
+    private final Icon[] busyIcons = new Icon[15];
+    private int busyIconIndex = 0;
+
+    private JDialog aboutBox;
+    private JFrame settingView;
+    private CSPublicationCrawlerBO model;
+    
+    //Code for JTextPane output console
+//    private void updateTextPane(final String text) {
+//        SwingUtilities.invokeLater(new Runnable() {
+//
+//            public void run() {
+//                Document doc = outputTextPane.getDocument();
+//                try {
+//                    doc.insertString(doc.getLength(), text, null);
+//                } catch (BadLocationException e) {
+//                    throw new RuntimeException(e);
+//                }
+//                outputTextPane.setCaretPosition(doc.getLength() - 1);
+//            }
+//        });
+//    }
+//
+//    private void redirectSystemStreams() {
+//        OutputStream out = new OutputStream() {
+//
+//            @Override
+//            public void write(final int b) throws IOException {
+//                updateTextPane(String.valueOf((char) b));
+//            }
+//
+//            @Override
+//            public void write(byte[] b, int off, int len) throws IOException {
+//                updateTextPane(new String(b, off, len));
+//            }
+//
+//            @Override
+//            public void write(byte[] b) throws IOException {
+//                write(b, 0, b.length);
+//            }
+//        };
+//        System.setOut(new PrintStream(out, true));
+//        System.setErr(new PrintStream(out, true));
+//    }
+
+    // Code for text area output console
+//    private void updateTextArea(final String text) {    
+//        SwingUtilities.invokeLater(new Runnable() {  
+//            public void run() {   
+//                outputTextArea.append(text);      
+//            }    
+//        });  
+//    }  
+//    
+//    private void redirectSystemStreams() {    
+//        OutputStream out = new OutputStream() {      
+//            @Override      
+//            public void write(int b) throws IOException {        
+//                updateTextArea(String.valueOf((char) b));      
+//            }      
+//            @Override      
+//            public void write(byte[] b, int off, int len) throws IOException {
+//                updateTextArea(new String(b, off, len));      
+//            }      
+//            @Override      
+//            public void write(byte[] b) throws IOException {
+//                write(b, 0, b.length);      
+//            }    
+//        };    
+//        System.setOut(new PrintStream(out, true));    
+//        System.setErr(new PrintStream(out, true));
+//    }
+//    
+    
+}

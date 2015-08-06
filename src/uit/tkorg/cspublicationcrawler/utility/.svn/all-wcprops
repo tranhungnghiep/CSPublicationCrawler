@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/utility
+END
+CommonTextFileUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 164
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/utility/CommonTextFileUtility.java
+END
+CommonURLQuery.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/utility/CommonURLQuery.java
+END
+CommonStringUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/utility/CommonStringUtility.java
+END
+HashMapUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 157
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/utility/HashMapUtility.java
+END
+XMLBuilder.java
+K 25
+svn:wc:ra_dav:version-url
+V 153
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/utility/XMLBuilder.java
+END
+CommonHTMLProcessor.java
+K 25
+svn:wc:ra_dav:version-url
+V 162
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/utility/CommonHTMLProcessor.java
+END
+CommonXMLUtility.java
+K 25
+svn:wc:ra_dav:version-url
+V 159
+/svn/!svn/ver/192/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/utility/CommonXMLUtility.java
+END

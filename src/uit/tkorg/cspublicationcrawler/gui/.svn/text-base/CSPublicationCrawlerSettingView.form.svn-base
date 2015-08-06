@@ -1,0 +1,640 @@
+<?xml version="1.1" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" resourceKey="Form.title"/>
+    <Property name="name" type="java.lang.String" value="Form" noResource="true"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <EmptySpace min="0" pref="455" max="32767" attributes="0"/>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Component id="settingTabbedPane" alignment="0" pref="455" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <EmptySpace min="0" pref="360" max="32767" attributes="0"/>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Component id="settingTabbedPane" alignment="0" pref="360" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JTabbedPane" name="settingTabbedPane">
+      <Properties>
+        <Property name="name" type="java.lang.String" value="settingTabbedPane" noResource="true"/>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="dbconnectorPanel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="dbconnectorPanel" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Database Connector">
+                <Property name="tabTitle" type="java.lang.String" resourceKey="dbconnectorPanel.TabConstraints.tabTitle"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="outputScrollPane" alignment="0" pref="430" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="dbnameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="usernameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="urlLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="urlTextField" alignment="0" pref="337" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="usernameTextField" min="-2" pref="127" max="-2" attributes="1"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="passwordLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="passwordTextField" pref="150" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="dbnameTextField" alignment="0" pref="337" max="32767" attributes="1"/>
+                              </Group>
+                          </Group>
+                          <Component id="outputLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="testconnectionButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="urlLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="urlTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="usernameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="usernameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="passwordTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="passwordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="dbnameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dbnameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="testconnectionButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="outputLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="outputScrollPane" pref="178" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="urlLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="urlLabel.text"/>
+                <Property name="name" type="java.lang.String" value="urlLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="urlTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="urlTextField.text"/>
+                <Property name="name" type="java.lang.String" value="urlTextField" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="usernameLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="usernameLabel.text"/>
+                <Property name="name" type="java.lang.String" value="usernameLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="usernameTextField">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="usernameTextField" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="passwordLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="passwordLabel.text"/>
+                <Property name="name" type="java.lang.String" value="passwordLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="passwordTextField">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="passwordTextField" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="dbnameLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="dbnameLabel.text"/>
+                <Property name="name" type="java.lang.String" value="dbnameLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="dbnameTextField">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="dbnameTextField" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="testconnectionButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="testconnectionButton.text"/>
+                <Property name="name" type="java.lang.String" value="testconnectionButton" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="outputLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="outputLabel.text"/>
+                <Property name="name" type="java.lang.String" value="outputLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="outputScrollPane">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="outputScrollPane" noResource="true"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="outputTextArea">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="name" type="java.lang.String" value="outputTextArea" noResource="true"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="schedulePanel">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="schedulePanel" noResource="true"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Schedule">
+                <Property name="tabTitle" type="java.lang.String" resourceKey="schedulePanel.TabConstraints.tabTitle"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" max="-2" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="fromdateLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="fromdateTextField" min="-2" pref="112" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="1">
+                                      <Component id="todateLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="todateTextField" min="-2" pref="112" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="fromtimeLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="totimeLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="fromtimeTextField" min="-2" pref="123" max="-2" attributes="0"/>
+                                  <Component id="totimeTextField" min="-2" pref="123" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="ondaysLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="modeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="dailyrunCheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="monCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="tueCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="wedCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="thuCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="friCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="satCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="sunCheckBox" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="timerequestLabel" alignment="0" min="-2" max="-2" attributes="1"/>
+                                  <Component id="timeoutLabel" alignment="0" min="-2" max="-2" attributes="1"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="timeoutTextField" alignment="1" max="32767" attributes="1"/>
+                                          <Component id="timerequestTextField" alignment="1" min="-2" pref="114" max="-2" attributes="1"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="msLabel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="secondsLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jSeparator3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Component id="sleepafterLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="stopafterLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="stoprequestTextField" alignment="0" max="32767" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                                  <Component id="sleeprequestTextField" pref="81" max="32767" attributes="1"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="4" pref="4" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="requestLabel" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="sleepsecondTextField" min="-2" pref="71" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="secondLabel" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Component id="setscheduleButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jSeparator2" alignment="1" pref="430" max="32767" attributes="0"/>
+                          <Component id="jSeparator1" alignment="1" pref="430" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="fromdateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fromdateTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="todateTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="todateLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" max="-2" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <Component id="fromtimeLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="fromtimeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="totimeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="totimeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <Component id="jSeparator1" min="-2" pref="7" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="modeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="dailyrunCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="ondaysLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="monCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tueCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="wedCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="thuCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="friCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="satCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="sunCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="timerequestLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="timerequestTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="secondsLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                                      <Component id="timeoutLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="timeoutTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="msLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <Component id="sleepafterLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="sleeprequestTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="requestLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sleepsecondTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="secondLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="stopafterLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                          <Component id="stoprequestTextField" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                              <Component id="setscheduleButton" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jSeparator3" alignment="1" pref="183" max="32767" attributes="1"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="fromdateLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="fromdateLabel.text"/>
+                <Property name="name" type="java.lang.String" value="fromdateLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="fromdateTextField">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="fromdateTextField" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="todateLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="todateLabel.text"/>
+                <Property name="name" type="java.lang.String" value="todateLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="todateTextField">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="todateTextField" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator1" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ondaysLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="ondaysLabel.text"/>
+                <Property name="name" type="java.lang.String" value="ondaysLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="monCheckBox">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="monCheckBox.text"/>
+                <Property name="name" type="java.lang.String" value="monCheckBox" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="tueCheckBox">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="tueCheckBox.text"/>
+                <Property name="name" type="java.lang.String" value="tueCheckBox" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="wedCheckBox">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="wedCheckBox.text"/>
+                <Property name="name" type="java.lang.String" value="wedCheckBox" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="thuCheckBox">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="thuCheckBox.text"/>
+                <Property name="name" type="java.lang.String" value="thuCheckBox" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="friCheckBox">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="friCheckBox.text"/>
+                <Property name="name" type="java.lang.String" value="friCheckBox" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="satCheckBox">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="satCheckBox.text"/>
+                <Property name="name" type="java.lang.String" value="satCheckBox" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="sunCheckBox">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="sunCheckBox.text"/>
+                <Property name="name" type="java.lang.String" value="sunCheckBox" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator2">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="jSeparator2" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="modeLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="modeLabel.text"/>
+                <Property name="name" type="java.lang.String" value="modeLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="timerequestLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="timerequestLabel.text"/>
+                <Property name="name" type="java.lang.String" value="timerequestLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="timerequestTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="timerequestTextField.text"/>
+                <Property name="name" type="java.lang.String" value="timerequestTextField" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="timeoutLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="timeoutLabel.text"/>
+                <Property name="name" type="java.lang.String" value="timeoutLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="secondsLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="secondsLabel.text"/>
+                <Property name="name" type="java.lang.String" value="secondsLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="timeoutTextField">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="timeoutTextField" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="msLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="msLabel.text"/>
+                <Property name="name" type="java.lang.String" value="msLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="fromtimeTextField">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="fromtimeTextField" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="fromtimeLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="fromtimeLabel.text"/>
+                <Property name="name" type="java.lang.String" value="fromtimeLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="totimeTextField">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="totimeTextField" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="totimeLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="totimeLabel.text"/>
+                <Property name="name" type="java.lang.String" value="totimeLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="dailyrunCheckBox">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="dailyrunCheckBox.text"/>
+                <Property name="name" type="java.lang.String" value="dailyrunCheckBox" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator3">
+              <Properties>
+                <Property name="orientation" type="int" value="1"/>
+                <Property name="name" type="java.lang.String" value="jSeparator3" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="sleepafterLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="sleepafterLabel.text"/>
+                <Property name="name" type="java.lang.String" value="sleepafterLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="sleeprequestTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="sleeprequestTextField.text"/>
+                <Property name="name" type="java.lang.String" value="sleeprequestTextField" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="requestLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="requestLabel.text"/>
+                <Property name="name" type="java.lang.String" value="requestLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="sleepsecondTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="sleepsecondTextField.text"/>
+                <Property name="name" type="java.lang.String" value="sleepsecondTextField" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="secondLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="secondLabel.text"/>
+                <Property name="name" type="java.lang.String" value="secondLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="stopafterLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="stopafterLabel.text"/>
+                <Property name="name" type="java.lang.String" value="stopafterLabel" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="stoprequestTextField">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="stoprequestTextField.text"/>
+                <Property name="name" type="java.lang.String" value="stoprequestTextField" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel20">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="jLabel20.text"/>
+                <Property name="name" type="java.lang.String" value="jLabel20" noResource="true"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="setscheduleButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" resourceKey="setscheduleButton.text"/>
+                <Property name="name" type="java.lang.String" value="setscheduleButton" noResource="true"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

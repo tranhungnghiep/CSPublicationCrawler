@@ -1,0 +1,98 @@
+/**
+* Thuật toán chạy Crawler lấy dữ liệu trên MAS  theo hướng duyệt subdomain.
+* author: Nghiep
+* Date create: 18-08-2011
+*/
+
+Input: 
+- Subdomain
+- URL pattern
+
+Output:
+- Dữ liệu publication, author, organization, conference, journal, magazine, với sự kết nối tới subdomain, keyword...
+
+NOTE:
+- Công việc chính là 
++ ongoing : lấy url trên mas: hàm crawl chính, hàm crawl phụ
++ done : ktra tồn tại trong DB: mapper: kiểm tra dựa trên url trên mas
+	- trường hợp paper: nếu tồn tại thì có id: cập nhật thêm dữ liệu -> chỉ lấy id
+	- trường hợp non paper: tồn tại bỏ qua.
++ done : nếu chưa có hoặc cần cập nhật thì phải request: hàm request nhập url, trả về html content: dùng chung cho tất cả các url của các object
++ partial : hàm đưa html content vào trả về dto
++ done : insert, update dto: mapper
+-> gọi lồng trong hàm trả về dto, phần chính.
+- Author name được lưu 3 thành phần.
+-> tìm cách lấy json mas trả về trước khi display.
+
+BEGIN
+
+Nhập subdomain;
+Sinh URL request pub list;
+request pub list lan dau tien cho moi subdomain;
+noPub = number of publication;
+
+int start, end = 0;
+while (start < noP){
+end = (start + 100 <= noPub)?(start + 100):noPub;
+Request pub list from start to end
+Parse pub list to get list of pub's url;
+for (pub : list)
+	if (pub có rồi && đầy đủ)
+	then lưu subdomain;
+	else {
+		if (pub chưa có)
+		then sẽ lưu mới id và url;
+		else sẽ cập nhật lại paper theo id và url cũ;
+
+		request pub;
+		
+		cập nhật dữ liệu "visible" cho các pub chưa đầy đủ;
+		//Tức là các dữ liệu có thể lưu ngay trực tiếp từ page trả về của pub;
+		// sẽ cập nhật những cái liên quan trước, rồi cập nhật paper, rồi cập nhật các bảng nối.
+		
+		parse author list of this pub;
+		for (author : author list )
+			crawlAuthorFunction(author);
+			//in this function, also call crawlOrgFunction;
+
+		parse conference or journal or magazine of this pub;
+		for (item : list)
+			crawlItem(item);
+			//also call crawlPCMemberFunction;
+
+		parse keyword of this pub;
+		for (keyword : list)
+			crawlKeywordFunction(keyword);
+
+		parse comment of this pub;
+		for (comment : list)
+			crawlCommentFunction(comment);
+
+		parse review of this pub;
+		for (review : list)
+			crawlReviewFunction(review);
+
+		parse reviewer of this pub;
+		for (reviewer : list)
+			crawlReviewerFunction(reviewer);
+			
+		//sau đây cập nhật citation
+		request citation list;
+		parse citation list;
+		for (citation : list){
+			if (citationPub chưa có)
+			then lưu mới id, url;
+			
+			cập nhật thông tin citation;
+			//lưu ý: ở đây duyệt các pub tham khảo đến pub ta đang crawl. Nhằm mục đích làm cho việc duyệt citation context thuận tiện hơn.
+		}
+			
+		//sau đây cập nhật citation context
+		request citationContext list;
+		parse citationContext list;
+		for (citationContext : list)
+			cập nhật thông tin citationContext;
+	}
+start = end;
+}
+END
