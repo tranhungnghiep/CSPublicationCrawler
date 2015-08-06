@@ -37,7 +37,6 @@ public class MASPageAnalyzeBO {
      * @return 
      */
     public static PaperDTO generatePaperDTOFromHTMLContent(String strPubHTMLContent, int idPaper, String strPubURL) throws Exception {
-        if (strPubHTMLContent == null) return new PaperDTO();
         PaperDTO dtoPaper = null;
         JournalDTO dtoJournal = null;
         ConferenceDTO dtoConference = null;
@@ -114,9 +113,7 @@ public class MASPageAnalyzeBO {
         JournalDTO dtoJournal = new JournalDTO();
         
         MASCrawlerBO masCrawlerBO = new MASCrawlerBO();
-        String strJournalHTMLContent = masCrawlerBO.crawlHTMLContentMAS(journalURL);
-        if (strJournalHTMLContent == null) return dtoJournal;
-        
+        String strJournalHTMLContent = masCrawlerBO.crawlGeneralHTMLContent(journalURL);
         dtoJournal.setJournalName(MASPageAnalyzeBO.getJournalName(strJournalHTMLContent));
         dtoJournal.setOrganization(null);
         dtoJournal.setUrl(journalURL);
@@ -134,10 +131,8 @@ public class MASPageAnalyzeBO {
      */
     public static ConferenceDTO generateConferenceDTOFromHTMLContent(String conferenceURL) throws Exception {
         ConferenceDTO dtoConference = new ConferenceDTO();
-        
         MASCrawlerBO masCrawlerBO = new MASCrawlerBO();
-        String strConferenceHTMLContent = masCrawlerBO.crawlHTMLContentMAS(conferenceURL);
-        if (strConferenceHTMLContent == null) return dtoConference;
+        String strConferenceHTMLContent = masCrawlerBO.crawlGeneralHTMLContent(conferenceURL);
         
         dtoConference.setConferenceName(getConferenceName(strConferenceHTMLContent));
         dtoConference.setOrganization(null);
@@ -158,11 +153,8 @@ public class MASPageAnalyzeBO {
      */
     public static KeywordDTO generateKeywordDTOFromHTMLContent(String keywordURL) throws Exception {
         KeywordDTO dtoKeyword = new KeywordDTO();
-        
         MASCrawlerBO masCrawlerBO = new MASCrawlerBO();
-        String strKeywordHTMLContent = masCrawlerBO.crawlHTMLContentMAS(keywordURL);
-        if (strKeywordHTMLContent == null) return dtoKeyword;
-        
+        String strKeywordHTMLContent = masCrawlerBO.crawlGeneralHTMLContent(keywordURL);
         dtoKeyword.setKeyword(getKeywordName(strKeywordHTMLContent));
         dtoKeyword.setStemmingVariations(getKeywordStemmingKeyword(strKeywordHTMLContent));
         dtoKeyword.setUrl(keywordURL);
@@ -177,10 +169,8 @@ public class MASPageAnalyzeBO {
      */
     public static AuthorDTO generateAuthorDTOFromHTMLContent(String authorURL) throws Exception {
         AuthorDTO dtoAuthor = new AuthorDTO();
-        
         MASCrawlerBO masCrawlerBO = new MASCrawlerBO();
-        String strAuthorHTMLContent = masCrawlerBO.crawlHTMLContentMAS(authorURL);
-        if (strAuthorHTMLContent == null) return dtoAuthor;
+        String strAuthorHTMLContent = masCrawlerBO.crawlGeneralHTMLContent(authorURL);
         
         dtoAuthor.setAuthorName(getAuthorName(strAuthorHTMLContent));
         dtoAuthor.setImage(getAuthorImage(strAuthorHTMLContent));
@@ -200,10 +190,8 @@ public class MASPageAnalyzeBO {
      */
     public static OrgDTO generateOrgDTOFromHTMLContent(String orgURL) throws Exception {
         OrgDTO dtoOrg = new OrgDTO();
-        
         MASCrawlerBO masCrawlerBO = new MASCrawlerBO();
-        String strOrgHTMLContent = masCrawlerBO.crawlHTMLContentMAS(orgURL);
-        if (strOrgHTMLContent == null) return dtoOrg;
+        String strOrgHTMLContent = masCrawlerBO.crawlGeneralHTMLContent(orgURL);
         
         dtoOrg.setOrgName(getOrgName(strOrgHTMLContent));
         dtoOrg.setWebsite(getOrgWebsite(strOrgHTMLContent));
@@ -360,11 +348,13 @@ public class MASPageAnalyzeBO {
                 if (textContent.contains("no")) {
                     int indexOfNo = textContent.indexOf("no");
                     endIndex = textContent.indexOf(",", indexOfNo);
+                    if (endIndex == -1) endIndex = textContent.length();
                 }
                 else {
                     endIndex = textContent.indexOf(",", startIndex);
+                    if (endIndex == -1) endIndex = textContent.length();
                 }
-                if (endIndex == -1) endIndex = textContent.length();
+
                 textContent = textContent.substring(startIndex, endIndex);
             }
         } catch (Exception ex) {

@@ -2,13 +2,13 @@
 
 dir
 192
-https://publicationcrawler.googlecode.com/svn/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui
+https://publicationcrawler.googlecode.com/svn/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui
 https://publicationcrawler.googlecode.com/svn
 
 
 
-2011-09-14T18:57:35.690805Z
-182
+2011-08-17T17:58:40.548808Z
+52
 skth007@gmail.com
 
 
@@ -26,47 +26,13 @@ skth007@gmail.com
 
 23dcd09b-b9b9-e8b6-e4da-d9dd7c3c16c7
 
-Test.java
-file
-
-
-
-
-2011-10-17T07:37:42.152907Z
-dedba47e7123bdf52af62f156f601da7
-2011-09-14T18:57:35.690805Z
-182
-skth007@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-9270
-
 CSPublicationCrawlerApp.java
 file
 
 
 
 
-2011-10-17T07:37:42.159908Z
+2011-10-17T07:36:37.503210Z
 0ff27af3201e115bf5de7ace5d460374
 2011-07-20T13:14:53.560540Z
 4
@@ -94,81 +60,13 @@ tin.huynh.uit@gmail.com
 
 1242
 
-Test.form
-file
-
-
-
-
-2011-10-17T07:37:42.161908Z
-bfb8142ad250ad098fe37a184f5aec0c
-2011-09-14T18:57:35.690805Z
-182
-skth007@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4476
-
-CSPublicationCrawlerView_domainComboBox.ser
-file
-
-
-
-
-2011-10-17T07:37:42.168908Z
-a2d62978f1fec4c560ee58284272dad2
-2011-09-07T17:14:16.824873Z
-180
-skth007@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-10766
-
 CSPublicationCrawlerAboutBox.java
 file
 
 
 
 
-2011-10-17T07:37:42.171909Z
+2011-10-17T07:36:37.506210Z
 635d61bda4815259a8101e513bfb7553
 2011-08-09T21:30:03.796056Z
 24
@@ -202,7 +100,7 @@ file
 
 
 
-2011-10-17T07:37:42.176909Z
+2011-10-17T07:36:37.510210Z
 14957b37b5514dc0dface54f5a618c55
 2011-08-09T21:30:03.796056Z
 24
@@ -236,7 +134,7 @@ file
 
 
 
-2011-10-17T07:37:42.181909Z
+2011-10-17T07:36:37.516210Z
 6607b078d9b1efc88241f323e527dd64
 2011-08-17T17:58:40.548808Z
 52
@@ -267,50 +165,16 @@ skth007@gmail.com
 resources
 dir
 
-TextAreaOutputStream.java
-file
-
-
-
-
-2011-10-17T07:37:42.189910Z
-5ab9775a3d678d3d8f036c3f301371a9
-2011-09-14T18:57:35.690805Z
-182
-skth007@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4455
-
 CSPublicationCrawlerView.java
 file
 
 
 
 
-2011-10-17T07:37:42.193910Z
-f042cbc5f08a507dff9ac604de58c9ac
-2011-09-14T18:57:35.690805Z
-182
+2011-10-17T07:36:37.525211Z
+337987f6c566fd1b83c74862d8512432
+2011-08-17T17:58:40.548808Z
+52
 skth007@gmail.com
 
 
@@ -333,7 +197,7 @@ skth007@gmail.com
 
 
 
-42534
+35152
 
 CSPublicationCrawlerSettingView.form
 file
@@ -341,7 +205,7 @@ file
 
 
 
-2011-10-17T07:37:42.217911Z
+2011-10-17T07:36:37.537212Z
 af2cf253f3a7963df0adcf263ea3d39f
 2011-08-17T17:58:40.548808Z
 52
@@ -375,10 +239,10 @@ file
 
 
 
-2011-10-17T07:37:42.239912Z
-db9f4dcc7364f97cff209ad5a8bf1b12
-2011-09-14T18:57:35.690805Z
-182
+2011-10-17T07:36:37.551212Z
+5d686531fd01728b8356db368a1e10c8
+2011-08-17T17:58:40.548808Z
+52
 skth007@gmail.com
 
 
@@ -401,5 +265,5 @@ skth007@gmail.com
 
 
 
-48684
+47934
 

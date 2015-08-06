@@ -1,4 +1,7 @@
-
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package uit.tkorg.cspublicationcrawler.dbaccess;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,9 +14,7 @@ import uit.tkorg.cspublicationcrawler.dto.DomainDTO;
  *
  * @author Loc Do
  * @since 12/08/2011: Create
- * --------------------------
- * @author Huong Tran
- * @since 29/08/2011 : edit method getListObj
+ * @version 1.0
  */
 public class DomainMapper extends MapperDB {
     public DomainMapper() throws Exception {
@@ -139,20 +140,21 @@ public class DomainMapper extends MapperDB {
      * @return Hash
      * @throw Exception
      */
-    public ResultSet getListObj() throws Exception {
-        //HashMap map = null;
+    public HashMap getListObj() throws Exception {
+        HashMap map = null;
         try {
             StringBuffer sql = new StringBuffer();
-            sql.append("SELECT * FROM cspublicationcrawler.domain");
+            sql.append("SELECT * FROM cspublication.domain");
+            
             PreparedStatement stmt = getConnection().prepareStatement(sql.toString());
+            
             ResultSet rs = stmt.executeQuery();
-            return rs;
-//            map = new HashMap();
-//             while (rs != null && rs.next()) {
-//                int idDomain = rs.getInt("idDomain");
-//                String domainName = rs.getString("domainName");
-//                map.put(idDomain, domainName);
-//            }
+            map = new HashMap();
+             while (rs != null && rs.next()) {
+                int idDomain = rs.getInt("idDomain");
+                String domainName = rs.getString("domainName");
+                map.put(idDomain, domainName);
+            }
         } 
         catch (Exception ex) {
             ex.printStackTrace();
@@ -163,6 +165,6 @@ public class DomainMapper extends MapperDB {
                     MASController.logger.severe("\tat " + stackTraceElement.toString());
             throw ex;
         }
-        //return map;
+        return map;
     }
 }

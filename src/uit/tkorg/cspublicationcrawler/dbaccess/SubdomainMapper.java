@@ -9,7 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Vector;
 import uit.tkorg.cspublicationcrawler.controller.MASController;
 import uit.tkorg.cspublicationcrawler.dto.SubdomainDTO;
 
@@ -21,9 +20,6 @@ import uit.tkorg.cspublicationcrawler.dto.SubdomainDTO;
   * -------------------
  * @author Nghiep H. Tran
  * @since 19/08/2011 : add method isExisted
- * ---------------------
- * @author Huong Tran
- * @since 29/08/2011 : edit method getListObj
  */
 
 public class SubdomainMapper extends MapperDB {
@@ -188,15 +184,21 @@ public class SubdomainMapper extends MapperDB {
      * @return Hash
      * @throw Exception
      */
-    public ResultSet getListObj(String domainName) throws Exception {
+    public HashMap getListObj() throws Exception {
+        HashMap map = null;
         try {
             StringBuffer sql = new StringBuffer();
-            sql.append("SELECT * FROM cspublicationcrawler.Domain LEFT JOIN cspublicationcrawler.Subdomain");
-            sql.append(" ON cspublicationcrawler.Domain.idDomain=cspublicationcrawler.Subdomain.idDomain WHERE cspublicationcrawler.Domain.domainName=?");
+            sql.append("SELECT * FROM cspublication.Subdomain");
+            
             PreparedStatement stmt = getConnection().prepareStatement(sql.toString());
-            stmt.setString(1, domainName);   
+            
             ResultSet rs = stmt.executeQuery();
-            return rs;
+            map = new HashMap();
+             while (rs != null && rs.next()) {
+                int idSubdomain = rs.getInt("idSubdomain");
+                String subdomainName = rs.getString("subdomainName");
+                map.put(idSubdomain, subdomainName);
+            }
         } 
         catch (Exception ex) {
             ex.printStackTrace();
@@ -205,7 +207,7 @@ public class SubdomainMapper extends MapperDB {
             if (arrObj != null)
                 for (Object stackTraceElement : arrObj)
                     MASController.logger.severe("\tat " + stackTraceElement.toString());
-            throw ex;
         }
+        return map;
     }
 }

@@ -2,14 +2,14 @@
 
 dir
 192
-https://publicationcrawler.googlecode.com/svn/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/nbproject
+https://publicationcrawler.googlecode.com/svn/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/nbproject
 https://publicationcrawler.googlecode.com/svn
 
 
 
-2011-09-07T17:14:16.824873Z
-180
-skth007@gmail.com
+2011-08-25T22:38:46.888221Z
+146
+tranhungnghiep@gmail.com
 has-props
 
 
@@ -32,11 +32,11 @@ file
 
 
 
-2011-10-17T07:37:40.793830Z
-332b25107c9b769cea0f0d3ab7838c27
-2011-09-07T17:14:16.824873Z
-180
-skth007@gmail.com
+2011-10-17T07:36:36.094129Z
+8328c483c8cb93433f3f5627c1e321b3
+2011-08-25T22:38:46.888221Z
+146
+tranhungnghiep@gmail.com
 
 
 
@@ -58,7 +58,7 @@ skth007@gmail.com
 
 
 
-4908
+4463
 
 project.xml
 file
@@ -66,7 +66,7 @@ file
 
 
 
-2011-10-17T07:37:40.796830Z
+2011-10-17T07:36:36.098129Z
 a83df1d448c2c84522119ead7406f03a
 2011-07-20T13:14:53.560540Z
 4
@@ -100,7 +100,7 @@ file
 
 
 
-2011-10-17T07:37:40.800830Z
+2011-10-17T07:36:36.102130Z
 0bdb146f5d43d8d19fd37c99c523d900
 2011-08-13T09:35:23.399475Z
 32
@@ -134,7 +134,7 @@ file
 
 
 
-2011-10-17T07:37:40.808831Z
+2011-10-17T07:36:36.109130Z
 63cc710131221667e46a3ca01506e537
 2011-08-13T09:35:23.399475Z
 32

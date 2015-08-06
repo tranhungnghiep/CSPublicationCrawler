@@ -2,13 +2,13 @@
 
 dir
 192
-https://publicationcrawler.googlecode.com/svn/branches/CSPublicationCrawler_iter150911_GUIDevelopment/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources
+https://publicationcrawler.googlecode.com/svn/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources
 https://publicationcrawler.googlecode.com/svn
 
 
 
-2011-09-14T18:57:35.690805Z
-182
+2011-08-17T17:58:40.548808Z
+52
 skth007@gmail.com
 
 
@@ -26,149 +26,13 @@ skth007@gmail.com
 
 23dcd09b-b9b9-e8b6-e4da-d9dd7c3c16c7
 
-crawler.png
-file
-
-
-
-
-2011-10-17T07:37:42.036901Z
-f5ff4231267a3e02137d249946c580be
-2011-07-27T12:46:01.735367Z
-6
-tin.huynh.uit@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-6696
-
-play.png
-file
-
-
-
-
-2011-10-17T07:37:42.060902Z
-e83fad74bfe6e33c9bf637c6554ce5d2
-2011-08-01T12:16:12.602360Z
-7
-tin.huynh.uit@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7130
-
-about.png
-file
-
-
-
-
-2011-10-17T07:37:42.113905Z
-e0cec10e6c2c93f571ed2233b22a45cd
-2011-07-20T13:14:53.560540Z
-4
-tin.huynh.uit@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-8187
-
-setting.png
-file
-
-
-
-
-2011-10-17T07:37:42.030900Z
-3e6cad44ef3e547846fb15570deeb5fb
-2011-07-27T12:46:01.735367Z
-6
-tin.huynh.uit@gmail.com
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4034
-
 pause.png
 file
 
 
 
 
-2011-10-17T07:37:42.024900Z
+2011-10-17T07:36:37.406204Z
 ee2cfd8ac5fe8286e4a66bce26f0a24e
 2011-08-01T12:16:12.602360Z
 7
@@ -196,14 +60,14 @@ has-props
 
 6855
 
-importDB.png
+setting.png
 file
 
 
 
 
-2011-10-17T07:37:42.045901Z
-aaa22e59932aa00f4fd255cbb29561f0
+2011-10-17T07:36:37.412204Z
+3e6cad44ef3e547846fb15570deeb5fb
 2011-07-27T12:46:01.735367Z
 6
 tin.huynh.uit@gmail.com
@@ -228,7 +92,41 @@ has-props
 
 
 
-7391
+4034
+
+crawler.png
+file
+
+
+
+
+2011-10-17T07:36:37.418205Z
+f5ff4231267a3e02137d249946c580be
+2011-07-27T12:46:01.735367Z
+6
+tin.huynh.uit@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6696
 
 CSPublicationCrawlerSettingView.properties
 file
@@ -236,7 +134,7 @@ file
 
 
 
-2011-10-17T07:37:42.041901Z
+2011-10-17T07:36:37.423205Z
 d9f6910fc9d455db234fd8a2031d9f03
 2011-08-17T17:58:40.548808Z
 52
@@ -264,13 +162,47 @@ skth007@gmail.com
 
 1147
 
+importDB.png
+file
+
+
+
+
+2011-10-17T07:36:37.427205Z
+aaa22e59932aa00f4fd255cbb29561f0
+2011-07-27T12:46:01.735367Z
+6
+tin.huynh.uit@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7391
+
 CSPublicationCrawlerView.properties
 file
 
 
 
 
-2011-10-17T07:37:42.049902Z
+2011-10-17T07:36:37.433206Z
 b6d9a8e675aa68c3cffe1d606a547de9
 2011-08-17T17:58:40.548808Z
 52
@@ -304,7 +236,7 @@ file
 
 
 
-2011-10-17T07:37:42.054902Z
+2011-10-17T07:36:37.437206Z
 a632fa0634e37954a1b37fa880574163
 2011-08-01T12:16:12.602360Z
 7
@@ -332,17 +264,51 @@ has-props
 
 6465
 
-Test.properties
+play.png
 file
 
 
 
 
-2011-10-17T07:37:42.089904Z
-4e29022298493f13735f2307ebd9ae58
-2011-09-14T18:57:35.690805Z
-182
-skth007@gmail.com
+2011-10-17T07:36:37.443206Z
+e83fad74bfe6e33c9bf637c6554ce5d2
+2011-08-01T12:16:12.602360Z
+7
+tin.huynh.uit@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+7130
+
+CSPublicationCrawlerApp.properties
+file
+
+
+
+
+2011-10-17T07:36:37.447206Z
+400b3af51685e5db3eef055dd508fa05
+2011-07-20T13:14:53.560540Z
+4
+tin.huynh.uit@gmail.com
 
 
 
@@ -364,7 +330,7 @@ skth007@gmail.com
 
 
 
-24
+413
 
 help.png
 file
@@ -372,7 +338,7 @@ file
 
 
 
-2011-10-17T07:37:42.098904Z
+2011-10-17T07:36:37.451207Z
 cbaa3168b3c757fb87672fa2fbd00171
 2011-07-27T12:46:01.735367Z
 6
@@ -400,47 +366,13 @@ has-props
 
 7595
 
-CSPublicationCrawlerApp.properties
-file
-
-
-
-
-2011-10-17T07:37:42.093904Z
-d44122d2e900ab956d18c74258ce1809
-2011-09-07T17:14:16.824873Z
-180
-skth007@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-414
-
 splash.png
 file
 
 
 
 
-2011-10-17T07:37:42.104905Z
+2011-10-17T07:36:37.457207Z
 4ce5dc82078b17cc2c869c2c2e4e8b78
 2011-07-20T13:14:53.560540Z
 4
@@ -468,13 +400,50 @@ has-props
 
 21747
 
+about.png
+file
+
+
+
+
+2011-10-17T07:36:37.465207Z
+e0cec10e6c2c93f571ed2233b22a45cd
+2011-07-20T13:14:53.560540Z
+4
+tin.huynh.uit@gmail.com
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+8187
+
+busyicons
+dir
+
 CSPublicationCrawlerAboutBox.properties
 file
 
 
 
 
-2011-10-17T07:37:42.119906Z
+2011-10-17T07:36:37.471208Z
 a26b0ad963b9609de8a423e1c0850dc0
 2011-07-20T13:14:53.560540Z
 4
@@ -501,7 +470,4 @@ tin.huynh.uit@gmail.com
 
 
 278
-
-busyicons
-dir
 

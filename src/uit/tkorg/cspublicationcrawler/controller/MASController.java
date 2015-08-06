@@ -9,7 +9,6 @@ import java.util.Calendar;
 import uit.tkorg.cspublicationcrawler.bo.*;
 import java.util.logging.*;
 import uit.tkorg.cspublicationcrawler.constant.CSPublicationCrawlerConst;
-import uit.tkorg.cspublicationcrawler.gui.CSPublicationCrawlerView;
 
 /**
  *
@@ -22,8 +21,6 @@ import uit.tkorg.cspublicationcrawler.gui.CSPublicationCrawlerView;
  */
 public class MASController {
 
-//    private CSPublicationCrawlerView m_view;
-//    private CSPublicationCrawlerBO m_model;
     public static Logger logger;
     public static Handler logHandler;
     static {
@@ -54,9 +51,9 @@ public class MASController {
           ex.printStackTrace();
         }
     }   
-    //public static void main(String[] args){
-    public static void doCrawler(String subdomain) {
-        //String subdomain = "Security & Privacy";        
+    
+    public static void main(String args[]) {
+        String subdomain = "Algorithms & Theory";        
         MASCrawlerBO masCrawlerBO = new MASCrawlerBO();    
         System.out.println("**********************************************************");
         System.out.println("BEGIN CRAWLING FOR SUBDOMAIN: " + subdomain);
@@ -64,16 +61,16 @@ public class MASController {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Calendar cal = Calendar.getInstance();
         System.out.println(dateFormat.format(cal.getTime()));
-        logger.warning("**********************************************************");
-        logger.warning("BEGIN CRAWLING FOR SUBDOMAIN: " + subdomain);
-        logger.warning("**********************************************************");
-        logger.warning(dateFormat.format(cal.getTime()));
+        logger.info("**********************************************************");
+        logger.info("BEGIN CRAWLING FOR SUBDOMAIN: " + subdomain);
+        logger.info("**********************************************************");
+        logger.info(dateFormat.format(cal.getTime()));
         try {
             // start: (first publication to crawl - 1)
             // end: last publication to crawl
             // end = 0 means crawl to the last publication in this subdomain
             // start & end should be assigned 0 at the begin
-            int start = 1, end = 0;
+            int start = 0, end = 0;
             masCrawlerBO.crawl(subdomain, start, end);
         }
         catch(Exception ex) {
@@ -89,14 +86,9 @@ public class MASController {
         System.out.println("**********************************************************");
         System.out.println("END CRAWLING FOR SUBDOMAIN: " + subdomain);
         System.out.println("**********************************************************");
-        logger.warning(dateFormat.format(cal.getTime()));
-        logger.warning("**********************************************************");
-        logger.warning("END CRAWLING FOR SUBDOMAIN: " + subdomain);
-        logger.warning("**********************************************************");
+        logger.info(dateFormat.format(cal.getTime()));
+        logger.info("**********************************************************");
+        logger.info("END CRAWLING FOR SUBDOMAIN: " + subdomain);
+        logger.info("**********************************************************");
     }
-
-//    MASController(CSPublicationCrawlerBO model, CSPublicationCrawlerView view) {
-//        m_model= model;
-//        m_view= view;
-//    }
 }

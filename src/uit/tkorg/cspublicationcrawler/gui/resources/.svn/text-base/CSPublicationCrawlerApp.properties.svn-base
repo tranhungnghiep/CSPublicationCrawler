@@ -7,5 +7,5 @@ Application.vendor = UIT.TKORG
 Application.homepage = http\://www.uit.edu.vn/
 Application.description = A java Desktop Application for Crawling CS Publications from Online Lib.
 Application.vendorId = UIT
-Application.id = CSPublicationCrawler
+Application.id = ${Application.name}
 Application.lookAndFeel = system
