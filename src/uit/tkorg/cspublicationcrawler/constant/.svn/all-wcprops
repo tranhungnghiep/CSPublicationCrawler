@@ -1,17 +1,17 @@
 K 25
 svn:wc:ra_dav:version-url
 V 123
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/constant
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/constant
 END
 MASPatterns.java
 K 25
 svn:wc:ra_dav:version-url
 V 140
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/constant/MASPatterns.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/constant/MASPatterns.java
 END
 CSPublicationCrawlerConst.java
 K 25
 svn:wc:ra_dav:version-url
 V 154
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/constant/CSPublicationCrawlerConst.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/constant/CSPublicationCrawlerConst.java
 END

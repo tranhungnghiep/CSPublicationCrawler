@@ -1,47 +1,47 @@
 K 25
 svn:wc:ra_dav:version-url
 V 118
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui
 END
 CSPublicationCrawlerApp.java
 K 25
 svn:wc:ra_dav:version-url
 V 147
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerApp.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerApp.java
 END
 CSPublicationCrawlerAboutBox.java
 K 25
 svn:wc:ra_dav:version-url
 V 152
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerAboutBox.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerAboutBox.java
 END
 CSPublicationCrawlerAboutBox.form
 K 25
 svn:wc:ra_dav:version-url
 V 152
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerAboutBox.form
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerAboutBox.form
 END
 CSPublicationCrawlerSettingView.java
 K 25
 svn:wc:ra_dav:version-url
 V 155
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerSettingView.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerSettingView.java
 END
 CSPublicationCrawlerView.java
 K 25
 svn:wc:ra_dav:version-url
 V 148
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerView.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerView.java
 END
 CSPublicationCrawlerSettingView.form
 K 25
 svn:wc:ra_dav:version-url
 V 155
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerSettingView.form
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerSettingView.form
 END
 CSPublicationCrawlerView.form
 K 25
 svn:wc:ra_dav:version-url
 V 148
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerView.form
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/CSPublicationCrawlerView.form
 END

@@ -2,13 +2,13 @@
 
 dir
 192
-https://publicationcrawler.googlecode.com/svn/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/bo
+https://publicationcrawler.googlecode.com/svn/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/bo
 https://publicationcrawler.googlecode.com/svn
 
 
 
-2011-08-26T23:08:34.378948Z
-162
+2011-08-27T08:43:02.103554Z
+175
 tranhungnghiep@gmail.com
 
 
@@ -32,10 +32,10 @@ file
 
 
 
-2011-10-17T07:36:36.336143Z
-dbb9adca70fb72a7e03367a7023e28e8
-2011-08-26T23:08:34.378948Z
-162
+2011-10-17T07:36:56.138276Z
+67b72c2aa35c06b045cb472924667fd1
+2011-08-27T08:43:02.103554Z
+175
 tranhungnghiep@gmail.com
 
 
@@ -58,7 +58,7 @@ tranhungnghiep@gmail.com
 
 
 
-25356
+26457
 
 MASPageAnalyzeBO.java
 file
@@ -66,10 +66,10 @@ file
 
 
 
-2011-10-17T07:36:36.346143Z
-cc476ab82ab08fa1e1acd2c608479e94
-2011-08-26T22:30:13.896018Z
-161
+2011-10-17T07:36:56.150276Z
+b9f1c334ba2db53c37d72c14c09aac97
+2011-08-27T08:43:02.103554Z
+175
 tranhungnghiep@gmail.com
 
 
@@ -92,7 +92,7 @@ tranhungnghiep@gmail.com
 
 
 
-61573
+61907
 
 AuthorBO.java
 file
@@ -100,7 +100,7 @@ file
 
 
 
-2011-10-17T07:36:36.567156Z
+2011-10-17T07:36:56.154276Z
 01b8a9373dba7da683e62becbbcdda29
 2011-08-26T11:18:29.920336Z
 155
@@ -134,7 +134,7 @@ file
 
 
 
-2011-10-17T07:36:36.572156Z
+2011-10-17T07:36:56.158277Z
 7916ff98e5b247f19626ccac1b7a5b9f
 2011-08-24T12:21:46.812259Z
 126
@@ -162,47 +162,13 @@ tin.huynh.uit@gmail.com
 
 397
 
-CoAuthorGraphBO.java
-file
-
-
-
-
-2011-10-17T07:36:36.583157Z
-31fda22f0496384f1de2bec5d44e9a92
-2011-08-14T16:08:33.872462Z
-46
-dohaloc@gmail.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-53259
-
 PaperBO.java
 file
 
 
 
 
-2011-10-17T07:36:36.599158Z
+2011-10-17T07:36:56.160277Z
 365c0f55eb2d2981d8865b9bddafde27
 2011-08-26T11:18:29.920336Z
 155
@@ -236,10 +202,10 @@ file
 
 
 
-2011-10-17T07:36:36.602158Z
-8714bb57c332c04b1ca2ac58286cc1d6
-2011-08-26T11:18:29.920336Z
-155
+2011-10-17T07:36:56.163277Z
+196913816a2a2e6036b09430a2350b6c
+2011-08-27T05:01:19.327706Z
+167
 tranhungnghiep@gmail.com
 
 
@@ -262,7 +228,7 @@ tranhungnghiep@gmail.com
 
 
 
-19466
+17854
 
 OrgBO.java
 file
@@ -270,7 +236,7 @@ file
 
 
 
-2011-10-17T07:36:36.605158Z
+2011-10-17T07:36:56.167277Z
 8fb2a1ac5b84e5bd984329bbc869d6c3
 2011-08-26T22:30:13.896018Z
 161
@@ -304,11 +270,11 @@ file
 
 
 
-2011-10-17T07:36:36.608158Z
-cb3b1b4e9db685322e4499b65db7c39a
-2011-08-26T22:30:13.896018Z
-161
-tranhungnghiep@gmail.com
+2011-10-17T07:36:56.169277Z
+82632773058bc970ac09f875905e4ce6
+2011-08-26T23:50:58.771814Z
+165
+tin.huynh.uit@gmail.com
 
 
 
@@ -330,7 +296,7 @@ tranhungnghiep@gmail.com
 
 
 
-5715
+372
 
 JournalBO.java
 file
@@ -338,7 +304,7 @@ file
 
 
 
-2011-10-17T07:36:36.611159Z
+2011-10-17T07:36:56.172277Z
 4fbee152794418318386736c4e84351b
 2011-08-26T11:18:29.920336Z
 155

@@ -77,6 +77,7 @@ public class MASCrawlerBO extends Thread {
                     String strPubURL = (String) listPublicationURL.get(i); 
                     System.out.println("************************************************************ ");
                     System.out.println((start + i) + ". " + strPubURL);
+                    System.out.println("Manual: If error happen when crawl this publication, do the following steps: 1. Delete this publication in DB if fully exsist. 2. Crawl this publication again.");
                     System.out.println("************************************************************ ");
                     MASController.logger.info("************************************************************ ");
                     MASController.logger.warning((start + i) + ". " + strPubURL);
@@ -96,7 +97,7 @@ public class MASCrawlerBO extends Thread {
                     else {
                         // Cập nhật thông tin cơ bản của 1 publication
                         // Trong hàm này đồng thời cập nhật thông tin cho các bảng mà paper trực tiếp chỉ đến nếu cần.
-                        String strPubHTMLContent = crawlGeneralHTMLContent(strPubURL);
+                        String strPubHTMLContent = crawlHTMLContentMAS(strPubURL);
                         PaperDTO dtoPaper = MASPageAnalyzeBO.generatePaperDTOFromHTMLContent(strPubHTMLContent, idPaper, strPubURL);
                         
                         // Improve robustness to deal with bad data source.
@@ -113,6 +114,16 @@ public class MASCrawlerBO extends Thread {
                                 MASController.logger.info("Only PublicationURL existed in DB. Update other metadata for this publication");
                                 mapperPaper.updateObj(dtoPaper);
                             }
+
+                            // Update subdomain of publication
+                            System.out.println("BEGIN updating subdomain of this publication");
+                            MASController.logger.info("BEGIN updating subdomain of this publication");
+                            SubdomainPaperDTO dtoSubdomainPaper = new SubdomainPaperDTO(idPaper, idSubdomain);
+                            if (mapperSubdomainPaper.isExisted(dtoSubdomainPaper) == -1) {
+                                mapperSubdomainPaper.insertObj(dtoSubdomainPaper);
+                            }
+                            System.out.println("END updating subdomain of this publication");
+                            MASController.logger.info("END updating subdomain of this publication");
 
                             // Update keywords of publication
                             System.out.println("BEGIN updating keywords of this publication");
@@ -180,7 +191,7 @@ public class MASCrawlerBO extends Thread {
                             MASController.logger.info("BEGIN updating citation of this publication");
                             String strCitationListURL = MASPageAnalyzeBO.getCitationListOfPub(strPubHTMLContent);
                             if ((strCitationListURL != null) && (strCitationListURL.compareTo("") != 0)) {
-                                String citationListHTMLContent = crawlGeneralHTMLContent(strCitationListURL);
+                                String citationListHTMLContent = crawlHTMLContentMAS(strCitationListURL);
                                 if (citationListHTMLContent != null) {
                                     int noCitation = MASPageAnalyzeBO.getNumberCitations(citationListHTMLContent);
                                     int startCitation = 0, endCitation = 0, citationCount = 0;
@@ -198,6 +209,11 @@ public class MASCrawlerBO extends Thread {
                                                 if (idCitation == -1) {
                                                     PaperDTO dtoPaperCitation = new PaperDTO();
                                                     dtoPaperCitation.setUrl(strCitationURL);
+                                                    dtoPaperCitation.setIdJournal(-1);
+                                                    dtoPaperCitation.setIdConference(-1);
+                                                    dtoPaperCitation.setIdMagazine(-1);
+                                                    dtoPaperCitation.setVersion(-1);
+                                                    dtoPaperCitation.setYear(-1);
                                                     idCitation = mapperPaper.insertObj(dtoPaperCitation);
                                                     System.out.println(citationCount + "." + "Inserted citation:" + strCitationURL);
                                                     MASController.logger.info(citationCount + "." + "Inserted citation:" + strCitationURL);
@@ -225,7 +241,7 @@ public class MASCrawlerBO extends Thread {
                             System.out.println("BEGIN updating citation context of this publication");
                             String strCitationContextListURL = MASPageAnalyzeBO.getCitationConTextListOfPub(strPubHTMLContent);
                             if ((strCitationContextListURL != null) && (strCitationContextListURL.compareTo("") != 0)) {
-                                String strCitationContextListContent = crawlGeneralHTMLContent(strCitationContextListURL);
+                                String strCitationContextListContent = crawlHTMLContentMAS(strCitationContextListURL);
                                 int noCitationContext = MASPageAnalyzeBO.getNumberCitationContexts(strCitationContextListContent);
                                 int startCitationContext = 0, endCitationContext = 0;
                                 while (startCitationContext < noCitationContext) {
@@ -288,11 +304,7 @@ public class MASCrawlerBO extends Thread {
         String htmlContent = null;
         try {
             String urlString = MASPatterns.MAS_PUBLICATION_LIST_QUERY + idSubdomain;
-            UrlValidator urlValidator = new UrlValidator();
-            if (urlValidator.isValid(urlString)) {
-                URL urlSubmit = new URL(urlString);
-                htmlContent = CommonURLQuery.getHTMLPageContentWithUTF8(urlSubmit);
-            }
+            htmlContent = crawlGeneralHTMLContent(urlString);
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -320,11 +332,7 @@ public class MASCrawlerBO extends Thread {
                     + MASPatterns.AND
                     + MASPatterns.END + "=" + end;
             
-            UrlValidator urlValidator = new UrlValidator();
-            if (urlValidator.isValid(urlString)) {
-                URL urlSubmit = new URL(urlString);
-                htmlContent = CommonURLQuery.getHTMLPageContentWithUTF8(urlSubmit);
-            }
+            htmlContent = crawlGeneralHTMLContent(urlString);
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -339,25 +347,15 @@ public class MASCrawlerBO extends Thread {
     }
     
     /**
-     * crawlGeneralHTMLContent
+     * crawlHTMLContentMAS
      * @param strURL
      * @return 
      */
-    public String crawlGeneralHTMLContent(String strURL) throws Exception {
+    public String crawlHTMLContentMAS(String strURL) throws Exception {
         String htmlContent = null;
         try {
             String urlString = MASPatterns.MAS_HOMEPAGE_URL + strURL;
-            UrlValidator urlValidator = new UrlValidator();
-            if (urlValidator.isValid(urlString)) {
-                URL urlSubmit = new URL(urlString);
-                htmlContent = CommonURLQuery.getHTMLPageContentWithUTF8(urlSubmit);
-                // Improve robustness to deal with internet connection error.
-                // Check for sure that htmlContent has been got, and retry MAX_RETRY_TIMES time.
-                for (int i = 0; i < CSPublicationCrawlerConst.MAX_RETRY_TIMES; i++) {
-                    if (htmlContent == null)
-                        htmlContent = CommonURLQuery.getHTMLPageContentWithUTF8(urlSubmit);
-                }
-            }
+            htmlContent = crawlGeneralHTMLContent(urlString);
         }
         catch (Exception ex) {
             ex.printStackTrace();
@@ -387,9 +385,32 @@ public class MASCrawlerBO extends Thread {
                     + MASPatterns.AND
                     + MASPatterns.END + "=" + end;
              
+            htmlContent = crawlGeneralHTMLContent(urlString);
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+            MASController.logger.severe("EXCEPTION: " + ex.toString());
+            Object[] arrObj = ex.getStackTrace();
+            if (arrObj != null)
+                for (Object stackTraceElement : arrObj)
+                    MASController.logger.severe("\tat " + stackTraceElement.toString());
+        }
+        
+        return htmlContent;
+    }
+    
+    /**
+     * crawlGeneralHTMLContent
+     * @param strURL
+     * @return
+     * @throws Exception 
+     */
+    public String crawlGeneralHTMLContent(String strURL) throws Exception {
+        String htmlContent = null;
+        try {
             UrlValidator urlValidator = new UrlValidator();
-            if (urlValidator.isValid(urlString)) {
-                URL urlSubmit = new URL(urlString);
+            if (urlValidator.isValid(strURL)) {
+                URL urlSubmit = new URL(strURL);
                 htmlContent = CommonURLQuery.getHTMLPageContentWithUTF8(urlSubmit);
                 // Improve robustness to deal with internet connection error.
                 // Check for sure that htmlContent has been got, and retry MAX_RETRY_TIMES time.
@@ -409,5 +430,5 @@ public class MASCrawlerBO extends Thread {
         }
         
         return htmlContent;
-    }
+    }    
 }

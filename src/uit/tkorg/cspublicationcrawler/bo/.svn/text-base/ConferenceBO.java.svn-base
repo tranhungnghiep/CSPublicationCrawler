@@ -35,76 +35,6 @@ import uit.tkorg.cspublicationcrawler.controller.MASController;
 
 public class ConferenceBO {
 
-    /**
-     * getInputConfFromDOMObject
-     * @param doc
-     * @return
-     * @throws Exception
-     */
-    public ArrayList getInputConfFromDOMObject(Document document) throws Exception {
-        ArrayList inputConferenceDTOList = new ArrayList();
-        ArrayList inputPaperDTOList = null;
-        ArrayList authorNameList = null;
-        InputConferenceDTO inputConfDTO = null;
-        InputPaperDTO inputPaperDTO = null;
-        Element root = document.getRootElement();
-
-        // iterate through child elements of root
-        for (Iterator i = root.elementIterator("Conference"); i.hasNext();) {
-            inputConfDTO = new InputConferenceDTO();
-            Element confElement = (Element) i.next();
-
-            Element confNameElement = confElement.element("Conference-Name");
-            String confName = confNameElement.getTextTrim();
-            Element sigNameElement = confElement.element("SIG");
-            String sigName = sigNameElement.getTextTrim();
-            Element paperListElement = confElement.element("PaperList");
-
-            inputPaperDTOList = new ArrayList();
-            for (Iterator j = paperListElement.elementIterator("Paper"); j.hasNext();) {
-                inputPaperDTO = new InputPaperDTO();
-                Element paperElement = (Element) j.next();
-                Element paperTitleElement = paperElement.element("Title");
-                Element depthLevelElement = paperElement.element("DepthLevelForCoAuthorNet");
-                String paperTitle = paperTitleElement.getTextTrim();
-                int depthLevel = Integer.parseInt(depthLevelElement.getTextTrim());
-                Element authorListElement = paperElement.element("AuthorList");
-
-                authorNameList = new ArrayList();
-                for (Iterator k = authorListElement.elementIterator("author"); k.hasNext();) {
-                    Element authorElement = (Element) k.next();
-                    String authorName = authorElement.getTextTrim();
-                    authorNameList.add(authorName);
-                }
-
-                inputPaperDTO.setTitle(paperTitle);
-                inputPaperDTO.setDepthLevelForCoAuthorNet(depthLevel);
-                inputPaperDTO.setAuthorNameList(authorNameList);
-                inputPaperDTO.setConferenceName(confName);
-                inputPaperDTO.setSigName(sigName);
-                inputPaperDTOList.add(inputPaperDTO);
-            }
-
-            ArrayList pcMemberNameList = new ArrayList();
-            Element pcMemberListElement = confElement.element("PCMembers");
-            if (pcMemberListElement != null) {
-                for (Iterator j = pcMemberListElement.elementIterator("member"); j.hasNext();) {
-                    Element pcMemberElement = (Element) j.next();
-                    String pcMemberName = pcMemberElement.getTextTrim();
-                    pcMemberNameList.add(pcMemberName);
-                }
-            }
-            
-            inputConfDTO.setConfName(confName);
-            inputConfDTO.setSigName(sigName);
-            inputConfDTO.setPaperList(inputPaperDTOList);
-            inputConfDTO.setPcMemberList(pcMemberNameList);
-            inputConferenceDTOList.add(inputConfDTO);
-        }
-
-        return inputConferenceDTOList;
-    }
-
      /**
      * check if the specified conference exist in the DB
      * @param confDTO
@@ -205,8 +135,14 @@ public class ConferenceBO {
                 totalPaperInOneConference += totalPaperOfAuthorInConf;
             }
         }
-        catch (Exception e) {
-            throw e;
+        catch (Exception ex) {
+            ex.printStackTrace();
+            MASController.logger.severe("EXCEPTION: " + ex.toString());
+            Object[] arrObj = ex.getStackTrace();
+            if (arrObj != null)
+                for (Object stackTraceElement : arrObj)
+                    MASController.logger.severe("\tat " + stackTraceElement.toString());
+            throw ex;
         }
         finally {
             authorPaperMapper.closeConnection();
@@ -279,8 +215,14 @@ public class ConferenceBO {
                 confPaperPercentHashMap.put(confName, new Double(percentSum));
             }
         }
-        catch (Exception e) {
-            throw e;
+        catch (Exception ex) {
+            ex.printStackTrace();
+            MASController.logger.severe("EXCEPTION: " + ex.toString());
+            Object[] arrObj = ex.getStackTrace();
+            if (arrObj != null)
+                for (Object stackTraceElement : arrObj)
+                    MASController.logger.severe("\tat " + stackTraceElement.toString());
+            throw ex;
         }
         finally {
             confMapper.closeConnection();
@@ -315,8 +257,14 @@ public class ConferenceBO {
                 confPaperPercentHashMap.put(confName, new Double(percentSum));
             }
         }
-        catch (Exception e) {
-            throw e;
+        catch (Exception ex) {
+            ex.printStackTrace();
+            MASController.logger.severe("EXCEPTION: " + ex.toString());
+            Object[] arrObj = ex.getStackTrace();
+            if (arrObj != null)
+                for (Object stackTraceElement : arrObj)
+                    MASController.logger.severe("\tat " + stackTraceElement.toString());
+            throw ex;
         }
         finally {
             authorPaperMapper.closeConnection();
@@ -376,8 +324,14 @@ public class ConferenceBO {
                 totalConfPercentWithCoAuthorHashMap.put(confName, new Double(sumConfPercentWithCoAuthor));
             } // end of while(...)
         }
-        catch (Exception e) {
-            e.printStackTrace();
+        catch (Exception ex) {
+            ex.printStackTrace();
+            MASController.logger.severe("EXCEPTION: " + ex.toString());
+            Object[] arrObj = ex.getStackTrace();
+            if (arrObj != null)
+                for (Object stackTraceElement : arrObj)
+                    MASController.logger.severe("\tat " + stackTraceElement.toString());
+            throw ex;
         }
         finally {
             confMapper.closeConnection();
@@ -437,8 +391,14 @@ public class ConferenceBO {
                 totalConfPercentWithCoAuthorHashMap.put(confName, new Double(sumConfPercentWithCoAuthor));
             } // end of while(...)
         }
-        catch (Exception e) {
-            e.printStackTrace();
+        catch (Exception ex) {
+            ex.printStackTrace();
+            MASController.logger.severe("EXCEPTION: " + ex.toString());
+            Object[] arrObj = ex.getStackTrace();
+            if (arrObj != null)
+                for (Object stackTraceElement : arrObj)
+                    MASController.logger.severe("\tat " + stackTraceElement.toString());
+            throw ex;
         }
         finally {
             confMapper.closeConnection();

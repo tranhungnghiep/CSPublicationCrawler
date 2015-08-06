@@ -17,9 +17,9 @@ public class CSPublicationCrawlerConst {
 	public static final String USERNAMEMSSQLSERVER = "sa";
 	public static final String PASSWORDMSSQLSERVER = "12345";        
         
-        public static final int MAX_RETRY_TIMES = 1;
-        public static final int TIME_SLEEP_AFTER_EXCEPTION = 5000;
+        public static final int MAX_RETRY_TIMES = 2;
+        public static final int TIME_SLEEP_AFTER_EXCEPTION = 10000;
         public static final int TIME_SLEEP = 600;
-        public static final Level LOGGING_LEVEL = Level.ALL;
-        //public static final Level LOGGING_LEVEL = Level.WARNING;
+        //public static final Level LOGGING_LEVEL = Level.ALL;
+        public static final Level LOGGING_LEVEL = Level.WARNING;
 }

@@ -1,0 +1,2 @@
+1. Handle DB connection error to prevent and avoid data loss.
+2. Manage threads better.

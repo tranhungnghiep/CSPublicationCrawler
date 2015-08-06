@@ -1,35 +1,41 @@
 K 25
 svn:wc:ra_dav:version-url
 V 123
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document
 END
 WeeklyStatusReport_Nghiep.xls
 K 25
 svn:wc:ra_dav:version-url
 V 153
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document/WeeklyStatusReport_Nghiep.xls
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document/WeeklyStatusReport_Nghiep.xls
+END
+To do.txt
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document/To%20do.txt
 END
 WeeklyStatusReport_LocHuong.xls
 K 25
 svn:wc:ra_dav:version-url
 V 155
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document/WeeklyStatusReport_LocHuong.xls
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document/WeeklyStatusReport_LocHuong.xls
 END
 Algorithm.txt
 K 25
 svn:wc:ra_dav:version-url
 V 137
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document/Algorithm.txt
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document/Algorithm.txt
 END
 Notes.txt
 K 25
 svn:wc:ra_dav:version-url
 V 133
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document/Notes.txt
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document/Notes.txt
 END
 bugs.txt
 K 25
 svn:wc:ra_dav:version-url
 V 132
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document/bugs.txt
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document/bugs.txt
 END

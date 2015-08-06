@@ -2,13 +2,13 @@
 
 dir
 192
-https://publicationcrawler.googlecode.com/svn/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document
+https://publicationcrawler.googlecode.com/svn/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/document
 https://publicationcrawler.googlecode.com/svn
 
 
 
-2011-08-26T14:06:18.460361Z
-157
+2011-08-28T14:30:04.265778Z
+176
 tranhungnghiep@gmail.com
 
 
@@ -32,11 +32,11 @@ file
 
 
 
-2011-10-17T07:36:39.723337Z
-74f7ccb76700bb6eec2ba9aca1a5b351
-2011-08-26T08:00:44.411489Z
-150
-tin.huynh.uit@gmail.com
+2011-10-17T07:36:59.439464Z
+80b7d0513cc9ea728157aa0caf18d95d
+2011-08-28T14:30:04.265778Z
+176
+tranhungnghiep@gmail.com
 has-props
 
 
@@ -58,7 +58,41 @@ has-props
 
 
 
-40448
+39424
+
+To do.txt
+file
+
+
+
+
+2011-10-17T07:36:59.443465Z
+6571d6d0c0d07b43aa4059c9cb9b142b
+2011-08-27T08:10:45.882376Z
+174
+tranhungnghiep@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+88
 
 WeeklyStatusReport_LocHuong.xls
 file
@@ -66,7 +100,7 @@ file
 
 
 
-2011-10-17T07:36:39.729337Z
+2011-10-17T07:36:59.448465Z
 902c892269e2ca03e99619d847b3c3e2
 2011-08-26T08:00:44.411489Z
 150
@@ -100,7 +134,7 @@ file
 
 
 
-2011-10-17T07:36:39.732337Z
+2011-10-17T07:36:59.474466Z
 33a2615221f4ae195cc893260aea7ffb
 2011-08-21T04:04:05.853395Z
 80
@@ -137,7 +171,7 @@ file
 
 
 
-2011-10-17T07:36:39.735337Z
+2011-10-17T07:36:59.477467Z
 f26483fb6124c6f291da6c6c3280c722
 2011-08-26T14:06:18.460361Z
 157
@@ -174,7 +208,7 @@ file
 
 
 
-2011-10-17T07:36:39.738338Z
+2011-10-17T07:36:59.480467Z
 7c112adf6dfee65e7762dea68a7a5188
 2011-08-26T08:24:27.434031Z
 152

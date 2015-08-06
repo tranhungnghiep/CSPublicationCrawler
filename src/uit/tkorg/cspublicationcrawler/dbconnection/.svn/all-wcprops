@@ -1,11 +1,11 @@
 K 25
 svn:wc:ra_dav:version-url
 V 127
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbconnection
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbconnection
 END
 ConnectionService.java
 K 25
 svn:wc:ra_dav:version-url
 V 150
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbconnection/ConnectionService.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dbconnection/ConnectionService.java
 END

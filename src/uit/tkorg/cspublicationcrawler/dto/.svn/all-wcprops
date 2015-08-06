@@ -1,149 +1,149 @@
 K 25
 svn:wc:ra_dav:version-url
 V 118
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto
 END
 ReviewerDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 135
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/ReviewerDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/ReviewerDTO.java
 END
 PCMemberDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 135
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/PCMemberDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/PCMemberDTO.java
 END
 AuthorPaperDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 138
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/AuthorPaperDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/AuthorPaperDTO.java
 END
 CrawlAuthorDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 138
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/CrawlAuthorDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/CrawlAuthorDTO.java
 END
 MagazineDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 135
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/MagazineDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/MagazineDTO.java
 END
 PaperPaperDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 137
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/PaperPaperDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/PaperPaperDTO.java
 END
 CommentDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 134
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/CommentDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/CommentDTO.java
 END
 AuthorDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 133
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/AuthorDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/AuthorDTO.java
 END
 ConfProgCommitteeGraphDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 149
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/ConfProgCommitteeGraphDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/ConfProgCommitteeGraphDTO.java
 END
 ConferenceDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 137
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/ConferenceDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/ConferenceDTO.java
 END
 DomainDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 133
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/DomainDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/DomainDTO.java
 END
 PaperDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 132
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/PaperDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/PaperDTO.java
 END
 SubdomainPaperDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 141
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/SubdomainPaperDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/SubdomainPaperDTO.java
 END
 JournalDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 134
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/JournalDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/JournalDTO.java
 END
 PaperKeywordDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 139
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/PaperKeywordDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/PaperKeywordDTO.java
 END
 PaperReviewerDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 140
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/PaperReviewerDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/PaperReviewerDTO.java
 END
 SubdomainDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 136
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/SubdomainDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/SubdomainDTO.java
 END
 PCMemberConfGraphDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 144
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/PCMemberConfGraphDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/PCMemberConfGraphDTO.java
 END
 ConferencePCMemberDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 145
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/ConferencePCMemberDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/ConferencePCMemberDTO.java
 END
 KeywordDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 134
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/KeywordDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/KeywordDTO.java
 END
 InputPaperDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 137
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/InputPaperDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/InputPaperDTO.java
 END
 InputConferenceDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 142
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/InputConferenceDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/InputConferenceDTO.java
 END
 OrgDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 130
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/OrgDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/OrgDTO.java
 END
 AuthorInstanceDTO.java
 K 25
 svn:wc:ra_dav:version-url
 V 141
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/AuthorInstanceDTO.java
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/dto/AuthorInstanceDTO.java
 END

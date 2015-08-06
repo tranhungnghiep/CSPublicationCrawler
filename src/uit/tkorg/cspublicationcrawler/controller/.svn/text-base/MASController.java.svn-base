@@ -61,16 +61,16 @@ public class MASController {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Calendar cal = Calendar.getInstance();
         System.out.println(dateFormat.format(cal.getTime()));
-        logger.info("**********************************************************");
-        logger.info("BEGIN CRAWLING FOR SUBDOMAIN: " + subdomain);
-        logger.info("**********************************************************");
-        logger.info(dateFormat.format(cal.getTime()));
+        logger.warning("**********************************************************");
+        logger.warning("BEGIN CRAWLING FOR SUBDOMAIN: " + subdomain);
+        logger.warning("**********************************************************");
+        logger.warning(dateFormat.format(cal.getTime()));
         try {
             // start: (first publication to crawl - 1)
             // end: last publication to crawl
             // end = 0 means crawl to the last publication in this subdomain
             // start & end should be assigned 0 at the begin
-            int start = 0, end = 0;
+            int start = 90000, end = 0;
             masCrawlerBO.crawl(subdomain, start, end);
         }
         catch(Exception ex) {
@@ -86,9 +86,9 @@ public class MASController {
         System.out.println("**********************************************************");
         System.out.println("END CRAWLING FOR SUBDOMAIN: " + subdomain);
         System.out.println("**********************************************************");
-        logger.info(dateFormat.format(cal.getTime()));
-        logger.info("**********************************************************");
-        logger.info("END CRAWLING FOR SUBDOMAIN: " + subdomain);
-        logger.info("**********************************************************");
+        logger.warning(dateFormat.format(cal.getTime()));
+        logger.warning("**********************************************************");
+        logger.warning("END CRAWLING FOR SUBDOMAIN: " + subdomain);
+        logger.warning("**********************************************************");
     }
 }

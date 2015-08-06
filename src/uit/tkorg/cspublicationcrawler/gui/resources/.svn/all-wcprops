@@ -1,83 +1,83 @@
 K 25
 svn:wc:ra_dav:version-url
 V 128
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources
 END
 pause.png
 K 25
 svn:wc:ra_dav:version-url
 V 138
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/pause.png
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/pause.png
 END
 setting.png
 K 25
 svn:wc:ra_dav:version-url
 V 140
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/setting.png
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/setting.png
 END
 crawler.png
 K 25
 svn:wc:ra_dav:version-url
 V 140
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/crawler.png
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/crawler.png
 END
 CSPublicationCrawlerSettingView.properties
 K 25
 svn:wc:ra_dav:version-url
 V 171
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/CSPublicationCrawlerSettingView.properties
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/CSPublicationCrawlerSettingView.properties
 END
 importDB.png
 K 25
 svn:wc:ra_dav:version-url
 V 141
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/importDB.png
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/importDB.png
 END
 CSPublicationCrawlerView.properties
 K 25
 svn:wc:ra_dav:version-url
 V 164
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/CSPublicationCrawlerView.properties
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/CSPublicationCrawlerView.properties
 END
 stop.png
 K 25
 svn:wc:ra_dav:version-url
 V 137
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/stop.png
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/stop.png
 END
 play.png
 K 25
 svn:wc:ra_dav:version-url
 V 137
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/play.png
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/play.png
 END
 CSPublicationCrawlerApp.properties
 K 25
 svn:wc:ra_dav:version-url
 V 163
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/CSPublicationCrawlerApp.properties
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/CSPublicationCrawlerApp.properties
 END
 help.png
 K 25
 svn:wc:ra_dav:version-url
 V 137
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/help.png
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/help.png
 END
 splash.png
 K 25
 svn:wc:ra_dav:version-url
 V 139
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/splash.png
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/splash.png
 END
 about.png
 K 25
 svn:wc:ra_dav:version-url
 V 138
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/about.png
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/about.png
 END
 CSPublicationCrawlerAboutBox.properties
 K 25
 svn:wc:ra_dav:version-url
 V 168
-/svn/!svn/ver/164/branches/CSPublicationCrawler_iter270811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/CSPublicationCrawlerAboutBox.properties
+/svn/!svn/ver/178/branches/CSPublicationCrawler_iter280811/CSPublicationCrawler/src/uit/tkorg/cspublicationcrawler/gui/resources/CSPublicationCrawlerAboutBox.properties
 END
